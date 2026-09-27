@@ -68,23 +68,73 @@
 
 .sop-hot-wrap .handsontable .manualColumnResizer {
   top: 0;
-  bottom: 0;
-  width: 9px;
+  width: 14px;
   background: transparent;
   cursor: col-resize;
-  z-index: 30;
+  pointer-events: auto;
+  z-index: 260;
 }
 
 .sop-hot-wrap .handsontable .manualColumnResizer:hover,
 .sop-hot-wrap .handsontable .manualColumnResizer.active {
+  opacity: 1;
   background: linear-gradient(90deg, transparent 3px, #0878f9 3px, #0878f9 5px, transparent 5px);
+}
+
+.sop-hot-wrap .handsontable .manualColumnResizerGuide {
+  z-index: 259;
 }
 
 .sop-hot-wrap .handsontable td.sop-hot-cell--badge,
 .sop-hot-wrap .handsontable td.sop-hot-cell--progress,
 .sop-hot-wrap .handsontable td.sop-hot-cell--currency,
-.sop-hot-wrap .handsontable td.sop-hot-cell--date {
+.sop-hot-wrap .handsontable td.sop-hot-cell--date,
+.sop-hot-wrap .handsontable td.sop-hot-cell--detail {
   padding: 0 10px;
+}
+
+.sop-hot-wrap .handsontable td.sop-hot-cell--detail {
+  text-align: center;
+}
+
+.sop-hot-detail-btn {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bfd5ec;
+  border-radius: 7px;
+  background: #f3f8fe;
+  color: #0878f9;
+  cursor: pointer;
+  transition: background-color .16s, border-color .16s, box-shadow .16s, transform .16s;
+}
+
+.sop-hot-detail-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.sop-hot-detail-btn:hover {
+  background: #0878f9;
+  border-color: #0878f9;
+  color: #fff;
+  box-shadow: 0 3px 8px #0878f92e;
+  transform: translateY(-1px);
+}
+
+.sop-hot-detail-btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px #0878f92b;
 }
 
 .sop-hot-wrap .handsontable td.sop-hot-cell--dropdown {

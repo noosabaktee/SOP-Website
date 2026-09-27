@@ -18,11 +18,16 @@ const { rows, pending, error, fetchRows, createRow, updateRow, deleteRow } = use
 const search = ref('')
 const status = ref('')
 const selected = ref<DataRow | null>(null)
+const detailRow = ref<DataRow | null>(null)
 const dirty = ref(new Set<string>())
 const confirmDelete = ref(false)
 const fileInput = ref<HTMLInputElement | null>(null)
 
 const effectiveColumns = computed(() => props.columns || gridSchemas[props.page.schema] || gridSchemas.generic || [])
+const displayColumns = computed<GridColumn[]>(() => [
+  ...effectiveColumns.value,
+  { key: '__detail', title: 'Detail', type: 'detail', editable: false, width: 74 },
+])
 const filtered = computed(() => {
   const query = search.value.toLowerCase().trim()
   const quickStatus = status.value.toLowerCase().trim()
@@ -86,6 +91,7 @@ const confirmDeleteSelected = async () => {
   if (!selected.value?.id) return
   await deleteRow(String(selected.value.id))
   rows.value = rows.value.filter(row => String(row.id) !== String(selected.value?.id))
+  if (String(detailRow.value?.id) === String(selected.value?.id)) detailRow.value = null
   selected.value = null
   confirmDelete.value = false
   showToast('Record deleted.')
@@ -120,6 +126,11 @@ const onImportFile = async (event: Event) => {
 
 const clearFilters = () => { search.value = ''; status.value = '' }
 const print = () => { if (import.meta.client) window.print() }
+const requestDetailDelete = () => {
+  if (!detailRow.value) return
+  selected.value = detailRow.value
+  requestDelete()
+}
 
 const onSaveShortcut = () => save()
 onMounted(() => window.addEventListener('sop:save', onSaveShortcut))
@@ -159,10 +170,10 @@ defineExpose({ load, save, create, requestDelete, exportCsv, triggerImport, clea
       <div v-if="pending" class="platform-grid-loading">Loading data…</div>
       <div v-else-if="error" class="error-state"><div><AppIcon name="warning" /><h3>Unable to load data</h3><p>{{ error }}</p><button class="pa-btn primary" type="button" @click="load">Retry</button></div></div>
       <div v-else-if="filtered.length === 0" class="empty-state" style="display:grid"><div><AppIcon name="search" /><h3>No records found</h3><p>Try changing your filters or create a new record.</p><div class="state-actions"><button class="pa-btn" type="button" @click="clearFilters">Clear Filters</button><button v-if="!readOnly" class="pa-btn primary" type="button" @click="create">Create</button></div></div></div>
-      <AppDataGrid v-else :rows="filtered" :columns="effectiveColumns" :read-only="readOnly" @change="onChange" @select="selected = $event" />
+      <AppDataGrid v-else :rows="filtered" :columns="displayColumns" :read-only="readOnly" @change="onChange" @select="selected = $event" @detail="detailRow = $event" />
     </div>
     <footer class="grid-footer"><span>Showing {{ filtered.length }} of {{ rows.length }} records</span><div class="page-buttons"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>›</button></div></footer>
   </section>
-  <RecordDrawer :row="selected" :columns="effectiveColumns" :module="page.module" @close="selected = null" @delete="requestDelete" />
+  <RecordDrawer :row="detailRow" :columns="effectiveColumns" :module="page.module" @close="detailRow = null" @delete="requestDetailDelete" />
   <ConfirmDialog :open="confirmDelete" title="Delete selected record?" message="This action removes the selected record from the JSON data layer." @cancel="confirmDelete = false" @confirm="confirmDeleteSelected" />
 </template>

@@ -11,15 +11,17 @@ import type { DataRow, GridColumn } from '~/types/platform'
 registerAllModules()
 
 const props = defineProps<{ rows: DataRow[]; columns: GridColumn[]; readOnly?: boolean }>()
-const emit = defineEmits<{ change: [changes: unknown]; select: [row: DataRow] }>()
+const emit = defineEmits<{ change: [changes: unknown]; select: [row: DataRow]; detail: [row: DataRow] }>()
 const config = useRuntimeConfig()
 const hotTable = ref<InstanceType<typeof HotTable> | null>(null)
+const manualWidths = ref<Record<string, number>>({})
 
 const numericTypes = new Set(['number', 'currency', 'percent', 'progress'])
 const visualCellClasses = [
   'sop-hot-cell--badge',
   'sop-hot-cell--currency',
   'sop-hot-cell--date',
+  'sop-hot-cell--detail',
   'sop-hot-cell--dropdown',
   'sop-hot-cell--progress',
 ]
@@ -147,7 +149,28 @@ const dateCellRenderer: typeof textRenderer = (hot, cell, row, col, prop, value,
   cell.replaceChildren(date)
 }
 
+const detailRenderer: typeof textRenderer = (hot, cell, row, col, prop, value, cellProperties) => {
+  textRenderer(hot, cell, row, col, prop, value, cellProperties)
+  resetVisualCell(cell)
+  cell.classList.add('sop-hot-cell--detail')
+
+  const button = document.createElement('button')
+  button.type = 'button'
+  button.className = 'sop-hot-detail-btn'
+  button.title = 'View details'
+  button.setAttribute('aria-label', `View details for row ${row + 1}`)
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svg.setAttribute('aria-hidden', 'true')
+  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+  use.setAttribute('href', '#ps-eye')
+  svg.append(use)
+  button.append(svg)
+  cell.replaceChildren(button)
+}
+
 const rendererFor = (column: GridColumn) => {
+  if (column.type === 'detail') return detailRenderer
   if (column.type === 'status') return badgeRenderer(true)
   if (column.type === 'dropdown' && /status|approval|source|industry|type|category|priority|qualification|stage|condition|method|terms|currency|tax|department|role|classification|movement/i.test(`${column.key} ${column.title}`)) return badgeRenderer(false)
   if (column.type === 'percent' || column.type === 'progress') return progressRenderer
@@ -189,7 +212,7 @@ const hotColumns = computed(() => props.columns.map(column => ({
   data: column.key,
   type: toHotType(column),
   readOnly: props.readOnly || column.editable === false || Boolean(column.formula),
-  width: column.width,
+  width: manualWidths.value[column.key] ?? column.width,
   source: sourceFor(column),
   allowInvalid: false,
   validator: validatorFor(column),
@@ -234,6 +257,13 @@ const settings = computed<GridSettings>(() => ({
   afterChange: (changes, source) => {
     if (changes && source !== 'loadData') emit('change', changes)
   },
+  afterColumnResize: (newSize, column) => {
+    const hot = hotTable.value?.hotInstance
+    const property = hot?.getCellMeta(0, column).prop
+    const key = typeof property === 'string' ? property : props.columns[column]?.key
+    if (!key || !Number.isFinite(newSize)) return
+    manualWidths.value = { ...manualWidths.value, [key]: newSize }
+  },
   afterSelectionEnd: (row) => {
     const item = props.rows[row]
     if (item) emit('select', item)
@@ -241,6 +271,13 @@ const settings = computed<GridSettings>(() => ({
   afterOnCellMouseDown: (event, coords) => {
     if (coords.row < 0 || coords.col < 0) return
     const column = props.columns[coords.col]
+    if (column?.type === 'detail') {
+      const target = event.target as HTMLElement | null
+      const button = target?.closest('.sop-hot-detail-btn')
+      const item = props.rows[coords.row]
+      if (button && item) emit('detail', item)
+      return
+    }
     if (!column || (column.type !== 'dropdown' && column.type !== 'status')) return
     if (props.readOnly || column.editable === false || column.formula) return
 
