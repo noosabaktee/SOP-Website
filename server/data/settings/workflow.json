@@ -2,11 +2,11 @@
   {
     "id": "SET-0001",
     "createdAt": "2026-09-27T00:00:00.000Z",
-    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T13:51:19.442Z",
     "workflow": "Workflow 1",
     "module": "Module 1",
     "step": 1,
-    "approver": "Budi Santoso",
+    "approver": "Budi Santosos",
     "threshold": 180000000,
     "sequence": 1,
     "status": "Draft"

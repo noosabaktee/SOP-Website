@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -6,6 +7,14 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   components: [{ path: '~/components', pathPrefix: false }],
   vite: { plugins: [tailwindcss()] },
+  nitro: {
+    serverAssets: [
+      {
+        baseName: 'sop-data',
+        dir: fileURLToPath(new URL('./server/data', import.meta.url)),
+      },
+    ],
+  },
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '/api',

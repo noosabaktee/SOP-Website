@@ -91,6 +91,8 @@ Collection GET mendukung `page`, `limit`, `search`, field filter, `sort`, dan `o
 
 Salin `.env.example` menjadi `.env` bila perlu. Untuk produksi komersial, isi `NUXT_PUBLIC_HANDSONTABLE_LICENSE_KEY` dengan license Handsontable yang sesuai. Nilai demo `non-commercial-and-evaluation` hanya untuk penggunaan yang memenuhi lisensinya.
 
+Untuk deployment VM/container, arahkan `SOP_DATA_DIR` ke volume writable dan persisten. Pada platform serverless (misalnya Vercel, Netlify, atau AWS Lambda), API otomatis memakai temporary directory agar operasi CRUD tidak gagal karena filesystem aplikasi bersifat read-only. Data di temporary directory dapat hilang saat instance di-restart dan tidak dibagikan antar-instance; gunakan backend/database persisten untuk data produksi.
+
 ## Routes
 
 Legacy `route-map.json` berisi **102 route**. Detail mapping ada di `docs/ROUTE_MIGRATION.md`. `npm run validate:migration` membandingkan route map dengan file-based routes dan gagal bila ada route hilang.

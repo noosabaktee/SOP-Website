@@ -1,9 +1,22 @@
 import { randomUUID } from 'node:crypto'
 import { promises as fs } from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
 import type { JsonRecord } from '../types/api'
 
-const dataRoot = path.resolve(process.cwd(), 'server/data')
+const seedRoot = path.resolve(process.cwd(), 'server/data')
+const isServerless = Boolean(
+  process.env.VERCEL
+  || process.env.NETLIFY
+  || process.env.AWS_LAMBDA_FUNCTION_NAME
+  || process.env.LAMBDA_TASK_ROOT,
+)
+const configuredDataRoot = process.env.SOP_DATA_DIR?.trim()
+const dataRoot = configuredDataRoot
+  ? path.resolve(configuredDataRoot)
+  : isServerless
+    ? path.join(os.tmpdir(), 'sop-data')
+    : seedRoot
 
 const safePath = (relative: string) => {
   const resolved = path.resolve(dataRoot, relative)
@@ -19,7 +32,10 @@ export async function readCollection<T extends JsonRecord>(relative: string): Pr
   try {
     return JSON.parse(await fs.readFile(filePath, 'utf8')) as T[]
   } catch (error: unknown) {
-    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') return []
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+      const seed = await useStorage('assets:sop-data').getItemRaw<string>(relative)
+      return seed ? JSON.parse(seed) as T[] : []
+    }
     throw error
   }
 }
