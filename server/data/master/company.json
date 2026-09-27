@@ -1,0 +1,18 @@
+[
+  {
+    "id": "COMP-001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "companyName": "PT Sinergi Bisnis Indonesia",
+    "legalName": "PT Sinergi Bisnis Indonesia",
+    "address": "Jakarta, Indonesia",
+    "phone": "+62 21 555 0199",
+    "email": "info@sinergibisnis.co.id",
+    "website": "www.sinergibisnis.co.id",
+    "npwp": "01.234.567.8-012.000",
+    "nib": "8120001234567",
+    "bank": "BCA",
+    "currency": "IDR",
+    "fiscalYear": "January - December"
+  }
+]

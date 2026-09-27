@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "./legacy/style.css";
+@import "./legacy/platform.css";
+@import "./handsontable-sop.css";
+
+html { color-scheme: light; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+#__nuxt { min-height: 100vh; }

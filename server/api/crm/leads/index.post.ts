@@ -1,0 +1,1 @@
+import {createRecord} from '~~/server/utils/jsonDatabase';export default defineEventHandler(async(event)=>({success:true,data:await createRecord('crm/leads.json',await readBody<Record<string, unknown>>(event))}))

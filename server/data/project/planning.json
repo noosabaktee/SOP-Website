@@ -1,0 +1,82 @@
+[
+  {
+    "id": "PLN-0001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Deliverable",
+    "description": "Approved engineering design",
+    "owner": "Budi Santoso",
+    "dueDate": "20 Sep 2026",
+    "status": "Open"
+  },
+  {
+    "id": "PLN-0002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Assumption",
+    "description": "Customer site access",
+    "owner": "Sari Dewi",
+    "dueDate": "21 Sep 2026",
+    "status": "In Progress"
+  },
+  {
+    "id": "PLN-0003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Risk",
+    "description": "Long lead material",
+    "owner": "Andi Wijaya",
+    "dueDate": "22 Sep 2026",
+    "status": "Approved"
+  },
+  {
+    "id": "PLN-0004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Deliverable",
+    "description": "Testing protocol",
+    "owner": "Rina Marlina",
+    "dueDate": "23 Sep 2026",
+    "status": "Open"
+  },
+  {
+    "id": "PLN-0005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Assumption",
+    "description": "Approved engineering design",
+    "owner": "Budi Santoso",
+    "dueDate": "24 Sep 2026",
+    "status": "In Progress"
+  },
+  {
+    "id": "PLN-0006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Risk",
+    "description": "Customer site access",
+    "owner": "Sari Dewi",
+    "dueDate": "25 Sep 2026",
+    "status": "Approved"
+  },
+  {
+    "id": "PLN-0007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Deliverable",
+    "description": "Long lead material",
+    "owner": "Andi Wijaya",
+    "dueDate": "26 Sep 2026",
+    "status": "Open"
+  },
+  {
+    "id": "PLN-0008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "type": "Assumption",
+    "description": "Testing protocol",
+    "owner": "Rina Marlina",
+    "dueDate": "27 Sep 2026",
+    "status": "In Progress"
+  }
+]

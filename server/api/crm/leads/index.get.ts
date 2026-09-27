@@ -1,0 +1,1 @@
+import {readCollection} from '~~/server/utils/jsonDatabase';import {queryCollection} from '~~/server/utils/queryCollection';export default defineEventHandler(async(event)=>({success:true,...queryCollection(await readCollection('crm/leads.json'),getQuery(event) as Record<string,unknown>)}))

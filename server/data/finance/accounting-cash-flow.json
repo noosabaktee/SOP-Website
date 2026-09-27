@@ -1,0 +1,110 @@
+[
+  {
+    "id": "STM-001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Operating Activities",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Customer Receipts",
+    "kind": "line",
+    "current": "Rp 14,850,000,000",
+    "previous": "Rp 14,850,000,000"
+  },
+  {
+    "id": "STM-003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Supplier Payments",
+    "kind": "line",
+    "current": "(Rp 8,920,000,000)",
+    "previous": "(Rp 8,920,000,000)"
+  },
+  {
+    "id": "STM-004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Operating Expenses",
+    "kind": "line",
+    "current": "(Rp 3,650,000,000)",
+    "previous": "(Rp 3,650,000,000)"
+  },
+  {
+    "id": "STM-005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Net Operating Cash",
+    "kind": "total",
+    "current": "Rp 2,280,000,000",
+    "previous": "Rp 2,280,000,000"
+  },
+  {
+    "id": "STM-006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Investing Activities",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Asset Purchases",
+    "kind": "line",
+    "current": "(Rp 620,000,000)",
+    "previous": "(Rp 620,000,000)"
+  },
+  {
+    "id": "STM-008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Financing Activities",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Loan Repayment",
+    "kind": "line",
+    "current": "(Rp 350,000,000)",
+    "previous": "(Rp 350,000,000)"
+  },
+  {
+    "id": "STM-010",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Opening Cash",
+    "kind": "line",
+    "current": "Rp 2,100,000,000",
+    "previous": "Rp 2,100,000,000"
+  },
+  {
+    "id": "STM-011",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Net Cash Flow",
+    "kind": "total",
+    "current": "Rp 1,310,000,000",
+    "previous": "Rp 1,310,000,000"
+  },
+  {
+    "id": "STM-012",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Closing Cash",
+    "kind": "total",
+    "current": "Rp 3,410,000,000",
+    "previous": "Rp 3,410,000,000"
+  }
+]

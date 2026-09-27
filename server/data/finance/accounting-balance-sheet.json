@@ -1,0 +1,164 @@
+[
+  {
+    "id": "STM-001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "ASSETS",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Current Assets",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Cash",
+    "kind": "line",
+    "current": "Rp 820,000,000",
+    "previous": "Rp 820,000,000"
+  },
+  {
+    "id": "STM-004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Bank",
+    "kind": "line",
+    "current": "Rp 2,450,000,000",
+    "previous": "Rp 2,450,000,000"
+  },
+  {
+    "id": "STM-005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Accounts Receivable",
+    "kind": "line",
+    "current": "Rp 3,380,000,000",
+    "previous": "Rp 3,380,000,000"
+  },
+  {
+    "id": "STM-006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Inventory",
+    "kind": "line",
+    "current": "Rp 1,975,000,000",
+    "previous": "Rp 1,975,000,000"
+  },
+  {
+    "id": "STM-007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Non-Current Assets",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Fixed Assets",
+    "kind": "line",
+    "current": "Rp 4,250,000,000",
+    "previous": "Rp 4,250,000,000"
+  },
+  {
+    "id": "STM-009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Accumulated Depreciation",
+    "kind": "line",
+    "current": "(Rp 980,000,000)",
+    "previous": "(Rp 980,000,000)"
+  },
+  {
+    "id": "STM-010",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "TOTAL ASSETS",
+    "kind": "total",
+    "current": "Rp 12,315,000,000",
+    "previous": "Rp 12,315,000,000"
+  },
+  {
+    "id": "STM-011",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "LIABILITIES",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-012",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Accounts Payable",
+    "kind": "line",
+    "current": "Rp 2,140,000,000",
+    "previous": "Rp 2,140,000,000"
+  },
+  {
+    "id": "STM-013",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Loans",
+    "kind": "line",
+    "current": "Rp 1,800,000,000",
+    "previous": "Rp 1,800,000,000"
+  },
+  {
+    "id": "STM-014",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "EQUITY",
+    "kind": "group",
+    "current": "",
+    "previous": ""
+  },
+  {
+    "id": "STM-015",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Capital",
+    "kind": "line",
+    "current": "Rp 5,000,000,000",
+    "previous": "Rp 5,000,000,000"
+  },
+  {
+    "id": "STM-016",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Retained Earnings",
+    "kind": "line",
+    "current": "Rp 1,760,000,000",
+    "previous": "Rp 1,760,000,000"
+  },
+  {
+    "id": "STM-017",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Current Year Profit",
+    "kind": "line",
+    "current": "Rp 940,000,000",
+    "previous": "Rp 940,000,000"
+  },
+  {
+    "id": "STM-018",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "TOTAL LIABILITIES & EQUITY",
+    "kind": "total",
+    "current": "Rp 12,315,000,000",
+    "previous": "Rp 12,315,000,000"
+  }
+]

@@ -1,0 +1,1 @@
+import {readCollection,findById} from '~~/server/utils/jsonDatabase';export default defineEventHandler(async(event)=>{const id=getRouterParam(event,'id')||'';const data=findById(await readCollection('crm/leads.json'),id);if(!data)throw createError({statusCode:404});return{success:true,data}})

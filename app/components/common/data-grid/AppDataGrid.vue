@@ -1,0 +1,2 @@
+<script setup lang="ts">import type { DataRow, GridColumn } from '~/types/platform'; defineProps<{ rows:DataRow[]; columns:GridColumn[]; readOnly?:boolean }>(); defineEmits<{change:[unknown];select:[DataRow]}>()</script>
+<template><ClientOnly><HandsontableGrid :rows="rows" :columns="columns" :read-only="readOnly" @change="$emit('change',$event)" @select="$emit('select',$event)" /><template #fallback><div class="platform-grid-loading">Loading data grid…</div></template></ClientOnly></template>

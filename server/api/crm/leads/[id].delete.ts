@@ -1,0 +1,1 @@
+import {deleteRecord} from '~~/server/utils/jsonDatabase';export default defineEventHandler(async(event)=>{const id=getRouterParam(event,'id')||'';await deleteRecord('crm/leads.json',id);return{success:true,data:{id}}})

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "USR-001",
+    "email": "demo@sop.local",
+    "name": "Demo User",
+    "role": "Administrator",
+    "status": "active"
+  }
+]

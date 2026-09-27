@@ -1,0 +1,59 @@
+/* SOP compatibility layer for Handsontable 18.x. The original SOP visual tokens remain authoritative. */
+.sop-hot-wrap {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.sop-hot-wrap .handsontable {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  color: #243553;
+}
+
+/* The legacy stylesheet has global table width/min-width rules. Handsontable
+   owns its table dimensions, so those rules must not stretch the row-header
+   clone into a large empty column. */
+.sop-hot-wrap .handsontable table,
+.sop-hot-wrap .handsontable table.htCore {
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  table-layout: fixed;
+}
+
+.sop-hot-wrap .handsontable th,
+.sop-hot-wrap .handsontable td {
+  box-sizing: border-box;
+  height: 38px;
+  padding: 0 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sop-hot-wrap .handsontable th {
+  height: 40px;
+  padding-right: 24px;
+  font-weight: 700;
+}
+
+.sop-hot-wrap .handsontable .rowHeader {
+  padding: 0;
+  text-align: center;
+  color: #6b7f9f;
+  font-weight: 600;
+}
+
+.sop-hot-wrap .handsontable td.htNumeric {
+  font-variant-numeric: tabular-nums;
+}
+
+.sop-hot-wrap .ht_master .wtHolder { overflow: auto !important; }
+.sop-hot-wrap .wtHolder::-webkit-scrollbar { width: 10px; height: 10px; }
+.sop-hot-wrap .wtHolder::-webkit-scrollbar-thumb { background: #c5d3e3; border: 2px solid #fff; border-radius: 999px; }
+.sop-hot-wrap .wtHolder::-webkit-scrollbar-track { background: #f7f9fc; }
+.platform-card, .platform-grid-card, .platform-main, .platform-app { min-width: 0; }
+.dark .sop-hot-wrap { color-scheme: dark; }

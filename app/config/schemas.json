@@ -1,0 +1,4580 @@
+{
+  "prospects": [
+    {
+      "key": "prospectId",
+      "title": "Prospect ID",
+      "type": "text",
+      "editable": false,
+      "width": 95
+    },
+    {
+      "key": "company",
+      "title": "Company",
+      "type": "text",
+      "editable": true,
+      "width": 160,
+      "required": true
+    },
+    {
+      "key": "contactPerson",
+      "title": "Contact Person",
+      "type": "text",
+      "editable": true,
+      "width": 135,
+      "required": true
+    },
+    {
+      "key": "industry",
+      "title": "Industry",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Manufacturing",
+        "Food & Beverage",
+        "Pharmaceutical",
+        "Electrical",
+        "Technology",
+        "Services"
+      ]
+    },
+    {
+      "key": "source",
+      "title": "Source",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Website",
+        "Referral",
+        "Event",
+        "Cold Call",
+        "LinkedIn"
+      ]
+    },
+    {
+      "key": "qualification",
+      "title": "Qualification",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Cold",
+        "Warm",
+        "Hot",
+        "Qualified"
+      ]
+    },
+    {
+      "key": "potentialValue",
+      "title": "Potential Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "probability",
+      "title": "Probability",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "assignedTo",
+      "title": "Assigned To",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Budi Santoso",
+        "Sari Dewi",
+        "Andi Wijaya",
+        "Rina Marlina"
+      ]
+    },
+    {
+      "key": "nextFollowUp",
+      "title": "Next Follow Up",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "createdDate",
+      "title": "Created Date",
+      "type": "date",
+      "editable": false,
+      "width": 120
+    }
+  ],
+  "customers": [
+    {
+      "key": "customerCode",
+      "title": "Customer Code",
+      "type": "text",
+      "editable": true,
+      "width": 100,
+      "required": true
+    },
+    {
+      "key": "customerName",
+      "title": "Customer Name",
+      "type": "text",
+      "editable": true,
+      "width": 160,
+      "required": true
+    },
+    {
+      "key": "company",
+      "title": "Company",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "industry",
+      "title": "Industry",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customerType",
+      "title": "Customer Type",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Corporate",
+        "Enterprise",
+        "Distributor",
+        "Government"
+      ]
+    },
+    {
+      "key": "npwp",
+      "title": "NPWP",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 175
+    },
+    {
+      "key": "phone",
+      "title": "Phone",
+      "type": "text",
+      "editable": true,
+      "width": 135
+    },
+    {
+      "key": "address",
+      "title": "Address",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "salesOwner",
+      "title": "Sales Owner",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "creditLimit",
+      "title": "Credit Limit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "COD",
+        "14 Days",
+        "30 Days",
+        "45 Days",
+        "60 Days"
+      ]
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "activities": [
+    {
+      "key": "activityId",
+      "title": "Activity ID",
+      "type": "text",
+      "editable": false,
+      "width": 92
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "type",
+      "title": "Type",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Call",
+        "Email",
+        "Meeting",
+        "Visit",
+        "Follow Up",
+        "WhatsApp",
+        "Task"
+      ]
+    },
+    {
+      "key": "subject",
+      "title": "Subject",
+      "type": "text",
+      "editable": true,
+      "width": 210
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "contact",
+      "title": "Contact",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "priority",
+      "title": "Priority",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Low",
+        "Normal",
+        "High",
+        "Urgent"
+      ]
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "result",
+      "title": "Result",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "nextAction",
+      "title": "Next Action",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    }
+  ],
+  "quotation": [
+    {
+      "key": "quotationNo",
+      "title": "Quotation No",
+      "type": "text",
+      "editable": false,
+      "width": 115
+    },
+    {
+      "key": "quotationDate",
+      "title": "Quotation Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "dropdown",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "dropdown",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "salesOwner",
+      "title": "Sales Owner",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "subtotal",
+      "title": "Subtotal",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "discount",
+      "title": "Discount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "grandTotal",
+      "title": "Grand Total",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "validity",
+      "title": "Validity",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approval",
+      "title": "Approval",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "createdBy",
+      "title": "Created By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "sales-orders": [
+    {
+      "key": "soNumber",
+      "title": "SO Number",
+      "type": "text",
+      "editable": false,
+      "width": 105
+    },
+    {
+      "key": "soDate",
+      "title": "SO Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "dropdown",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "quotation",
+      "title": "Quotation",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "salesOwner",
+      "title": "Sales Owner",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "subtotal",
+      "title": "Subtotal",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "grandTotal",
+      "title": "Grand Total",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "deliveryStatus",
+      "title": "Delivery Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "invoiceStatus",
+      "title": "Invoice Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentStatus",
+      "title": "Payment Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "delivery": [
+    {
+      "key": "bastNumber",
+      "title": "BAST Number",
+      "type": "text",
+      "editable": false,
+      "width": 110
+    },
+    {
+      "key": "deliveryDate",
+      "title": "Delivery Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "salesOrder",
+      "title": "Sales Order",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "deliveryLocation",
+      "title": "Delivery Location",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vehicle",
+      "title": "Vehicle",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "driver",
+      "title": "Driver",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "orderedQty",
+      "title": "Ordered Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "deliveredQty",
+      "title": "Delivered Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "remainingQty",
+      "title": "Remaining Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "condition",
+      "title": "Condition",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "invoice": [
+    {
+      "key": "invoiceNo",
+      "title": "Invoice No",
+      "type": "text",
+      "editable": false,
+      "width": 110
+    },
+    {
+      "key": "invoiceDate",
+      "title": "Invoice Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "salesOrder",
+      "title": "Sales Order",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "subtotal",
+      "title": "Subtotal",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "total",
+      "title": "Total",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paid",
+      "title": "Paid",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "outstanding",
+      "title": "Outstanding",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "sales-return": [
+    {
+      "key": "returnNo",
+      "title": "Return No",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "invoice",
+      "title": "Invoice",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "qty",
+      "title": "Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reason",
+      "title": "Reason",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "condition",
+      "title": "Condition",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "value",
+      "title": "Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "payment-receipt": [
+    {
+      "key": "receiptNo",
+      "title": "Receipt No",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "receiptDate",
+      "title": "Receipt Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "invoice",
+      "title": "Invoice",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentMethod",
+      "title": "Payment Method",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Bank Transfer",
+        "Cash",
+        "Cheque",
+        "Virtual Account"
+      ]
+    },
+    {
+      "key": "bankCash",
+      "title": "Bank/Cash",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "receivable": [
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "invoice",
+      "title": "Invoice",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "invoiceDate",
+      "title": "Invoice Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "invoiceAmount",
+      "title": "Invoice Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paid",
+      "title": "Paid",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "outstanding",
+      "title": "Outstanding",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "daysOverdue",
+      "title": "Days Overdue",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "aging",
+      "title": "Aging",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "collector",
+      "title": "Collector",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "projects": [
+    {
+      "key": "projectCode",
+      "title": "Project Code",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "projectName",
+      "title": "Project Name",
+      "type": "text",
+      "editable": true,
+      "width": 210
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "projectManager",
+      "title": "Project Manager",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "startDate",
+      "title": "Start Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "endDate",
+      "title": "End Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "progress",
+      "title": "Progress",
+      "type": "progress",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "actualCost",
+      "title": "Actual Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "revenue",
+      "title": "Revenue",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "profit",
+      "title": "Profit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "margin",
+      "title": "Margin",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "wbs": [
+    {
+      "key": "wbsCode",
+      "title": "WBS Code",
+      "type": "text",
+      "editable": true,
+      "width": 90
+    },
+    {
+      "key": "task",
+      "title": "Task",
+      "type": "text",
+      "editable": true,
+      "width": 210
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "responsible",
+      "title": "Responsible",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "start",
+      "title": "Start",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "end",
+      "title": "End",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "duration",
+      "title": "Duration",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "weight",
+      "title": "Weight",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "tasks": [
+    {
+      "key": "taskId",
+      "title": "Task ID",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "task",
+      "title": "Task",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "wbs",
+      "title": "WBS",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "priority",
+      "title": "Priority",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Low",
+        "Normal",
+        "High",
+        "Urgent"
+      ]
+    },
+    {
+      "key": "start",
+      "title": "Start",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "progress",
+      "title": "Progress",
+      "type": "progress",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "dependency",
+      "title": "Dependency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "milestones": [
+    {
+      "key": "milestone",
+      "title": "Milestone",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "progress",
+      "title": "Progress",
+      "type": "progress",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "deliverable",
+      "title": "Deliverable",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "approval",
+      "title": "Approval",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "team": [
+    {
+      "key": "employee",
+      "title": "Employee",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "role",
+      "title": "Role",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "projectRole",
+      "title": "Project Role",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "allocation",
+      "title": "Allocation %",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "start",
+      "title": "Start",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "end",
+      "title": "End",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "hourlyRate",
+      "title": "Hourly Rate",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "progress": [
+    {
+      "key": "period",
+      "title": "Period",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "planned",
+      "title": "Planned %",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "actual",
+      "title": "Actual %",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "variance",
+      "title": "Variance %",
+      "type": "percent",
+      "editable": true,
+      "width": 120,
+      "formula": "actual-planned"
+    },
+    {
+      "key": "notes",
+      "title": "Notes",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    }
+  ],
+  "budget": [
+    {
+      "key": "itemCode",
+      "title": "Item Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Material",
+        "Labor",
+        "Equipment",
+        "Subcontractor",
+        "Other",
+        "Contingency"
+      ]
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "qty",
+      "title": "Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unit",
+      "title": "Unit",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unitPrice",
+      "title": "Unit Price",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "qty*unitPrice"
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "dropdown",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "notes",
+      "title": "Notes",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    }
+  ],
+  "project-cost": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "costType",
+      "title": "Cost Type",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "actual",
+      "title": "Actual",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "variance",
+      "title": "Variance",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "budget-actual"
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "project-procurement": [
+    {
+      "key": "pr",
+      "title": "PR",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "po",
+      "title": "PO",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "item",
+      "title": "Item",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "qty",
+      "title": "Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "poValue",
+      "title": "PO Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "received",
+      "title": "Received",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "invoice",
+      "title": "Invoice",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "payment",
+      "title": "Payment",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "documents": [
+    {
+      "key": "documentNo",
+      "title": "Document No",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "documentName",
+      "title": "Document Name",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "module",
+      "title": "Module",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "version",
+      "title": "Version",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "owner",
+      "title": "Owner",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "createdDate",
+      "title": "Created Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "updatedDate",
+      "title": "Updated Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "profitability": [
+    {
+      "key": "revenue",
+      "title": "Revenue",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "materialCost",
+      "title": "Material Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "laborCost",
+      "title": "Labor Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "procurement",
+      "title": "Procurement",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "otherCost",
+      "title": "Other Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "totalCost",
+      "title": "Total Cost",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "materialCost+laborCost+procurement+otherCost"
+    },
+    {
+      "key": "profit",
+      "title": "Profit",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "revenue-totalCost"
+    },
+    {
+      "key": "margin",
+      "title": "Margin",
+      "type": "percent",
+      "editable": false,
+      "width": 120,
+      "formula": "profit/revenue*100"
+    }
+  ],
+  "purchase-request": [
+    {
+      "key": "prNumber",
+      "title": "PR Number",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "requester",
+      "title": "Requester",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "purpose",
+      "title": "Purpose",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "priority",
+      "title": "Priority",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "requiredDate",
+      "title": "Required Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "estimatedValue",
+      "title": "Estimated Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approval",
+      "title": "Approval",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "purchase-order": [
+    {
+      "key": "poNumber",
+      "title": "PO Number",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "deliveryDate",
+      "title": "Delivery Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "currency",
+      "title": "Currency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "shippingTerms",
+      "title": "Shipping Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "grandTotal",
+      "title": "Grand Total",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approval",
+      "title": "Approval",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "goods-receipt": [
+    {
+      "key": "grNumber",
+      "title": "GR Number",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "poNumber",
+      "title": "PO Number",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "warehouse",
+      "title": "Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "item",
+      "title": "Item",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "orderedQty",
+      "title": "Ordered Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "receivedQty",
+      "title": "Received Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "rejectedQty",
+      "title": "Rejected Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "condition",
+      "title": "Condition",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "purchase-return": [
+    {
+      "key": "returnNo",
+      "title": "Return No",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "po",
+      "title": "PO",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "gr",
+      "title": "GR",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "item",
+      "title": "Item",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "qty",
+      "title": "Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reason",
+      "title": "Reason",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "value",
+      "title": "Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "vendors": [
+    {
+      "key": "vendorCode",
+      "title": "Vendor Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendorName",
+      "title": "Vendor Name",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "contact",
+      "title": "Contact",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "phone",
+      "title": "Phone",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "address",
+      "title": "Address",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "npwp",
+      "title": "NPWP",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "rating",
+      "title": "Rating",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "contracts": [
+    {
+      "key": "vendor",
+      "title": "Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "contractNo",
+      "title": "Contract No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "startDate",
+      "title": "Start Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "endDate",
+      "title": "End Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unitPrice",
+      "title": "Unit Price",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currency",
+      "title": "Currency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "minimumQty",
+      "title": "Minimum Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "stock": [
+    {
+      "key": "sku",
+      "title": "SKU",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 190
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "warehouse",
+      "title": "Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "location",
+      "title": "Location",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "qtyOnHand",
+      "title": "Qty On Hand",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reserved",
+      "title": "Reserved",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "available",
+      "title": "Available",
+      "type": "number",
+      "editable": false,
+      "width": 120,
+      "formula": "qtyOnHand-reserved"
+    },
+    {
+      "key": "unit",
+      "title": "Unit",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "minimumStock",
+      "title": "Minimum Stock",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "maximumStock",
+      "title": "Maximum Stock",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "stockValue",
+      "title": "Stock Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "stock-movement": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "type",
+      "title": "Type",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Receipt",
+        "Issue",
+        "Transfer",
+        "Return",
+        "Adjustment"
+      ]
+    },
+    {
+      "key": "sku",
+      "title": "SKU",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "warehouse",
+      "title": "Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "qtyIn",
+      "title": "Qty In",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "qtyOut",
+      "title": "Qty Out",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "balance",
+      "title": "Balance",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "user",
+      "title": "User",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "warehouse-transfer": [
+    {
+      "key": "transferNo",
+      "title": "Transfer No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "fromWarehouse",
+      "title": "From Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "toWarehouse",
+      "title": "To Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "qty",
+      "title": "Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "requestedBy",
+      "title": "Requested By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approvedBy",
+      "title": "Approved By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "stock-opname": [
+    {
+      "key": "sku",
+      "title": "SKU",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "systemQty",
+      "title": "System Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "physicalQty",
+      "title": "Physical Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "difference",
+      "title": "Difference",
+      "type": "number",
+      "editable": false,
+      "width": 120,
+      "formula": "physicalQty-systemQty"
+    },
+    {
+      "key": "unit",
+      "title": "Unit",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "valueDifference",
+      "title": "Value Difference",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "counter",
+      "title": "Counter",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "stock-adjustment": [
+    {
+      "key": "adjustmentNo",
+      "title": "Adjustment No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "warehouse",
+      "title": "Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "sku",
+      "title": "SKU",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "systemQty",
+      "title": "System Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "adjustmentQty",
+      "title": "Adjustment Qty",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "finalQty",
+      "title": "Final Qty",
+      "type": "number",
+      "editable": false,
+      "width": 120,
+      "formula": "systemQty+adjustmentQty"
+    },
+    {
+      "key": "reason",
+      "title": "Reason",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approvedBy",
+      "title": "Approved By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "stock-card": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "qtyIn",
+      "title": "Qty In",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "qtyOut",
+      "title": "Qty Out",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "balance",
+      "title": "Balance",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unitCost",
+      "title": "Unit Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "value",
+      "title": "Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "finance-transaction": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "party",
+      "title": "Customer / Vendor",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 190
+    },
+    {
+      "key": "debit",
+      "title": "Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "credit",
+      "title": "Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "expenses": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "expenseNo",
+      "title": "Expense No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentMethod",
+      "title": "Payment Method",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "attachment",
+      "title": "Attachment",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "finance-receipts": [
+    {
+      "key": "receiptNo",
+      "title": "Receipt No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customer",
+      "title": "Customer",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "invoice",
+      "title": "Invoice",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bankCash",
+      "title": "Bank/Cash",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "journal-entry": [
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "debit",
+      "title": "Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "credit",
+      "title": "Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "general-journal": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "journalNo",
+      "title": "Journal No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "debit",
+      "title": "Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "credit",
+      "title": "Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "project",
+      "title": "Project",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "trial-balance": [
+    {
+      "key": "accountCode",
+      "title": "Account Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountName",
+      "title": "Account Name",
+      "type": "text",
+      "editable": true,
+      "width": 210
+    },
+    {
+      "key": "openingDebit",
+      "title": "Opening Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "openingCredit",
+      "title": "Opening Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "periodDebit",
+      "title": "Period Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "periodCredit",
+      "title": "Period Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "closingDebit",
+      "title": "Closing Debit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "closingCredit",
+      "title": "Closing Credit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "reconciliation": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bookAmount",
+      "title": "Book Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bankAmount",
+      "title": "Bank Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "difference",
+      "title": "Difference",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "bookAmount-bankAmount"
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "notes",
+      "title": "Notes",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    }
+  ],
+  "closing": [
+    {
+      "key": "period",
+      "title": "Period",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "revenue",
+      "title": "Revenue",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "expense",
+      "title": "Expense",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "profit",
+      "title": "Profit",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "revenue-expense"
+    },
+    {
+      "key": "closingStatus",
+      "title": "Closing Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "closedBy",
+      "title": "Closed By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "closedDate",
+      "title": "Closed Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "cash": [
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "transaction",
+      "title": "Transaction",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "cashIn",
+      "title": "Cash In",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "cashOut",
+      "title": "Cash Out",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "balance",
+      "title": "Balance",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "account",
+      "title": "Account",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    }
+  ],
+  "bank-accounts": [
+    {
+      "key": "bank",
+      "title": "Bank",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountName",
+      "title": "Account Name",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountNumber",
+      "title": "Account Number",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currency",
+      "title": "Currency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "openingBalance",
+      "title": "Opening Balance",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currentBalance",
+      "title": "Current Balance",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "bank-transfers": [
+    {
+      "key": "transferNo",
+      "title": "Transfer No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "fromAccount",
+      "title": "From Account",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "toAccount",
+      "title": "To Account",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "bank-reconciliation": [
+    {
+      "key": "bankDate",
+      "title": "Bank Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "reference",
+      "title": "Reference",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "bankAmount",
+      "title": "Bank Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bookAmount",
+      "title": "Book Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "difference",
+      "title": "Difference",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "bankAmount-bookAmount"
+    },
+    {
+      "key": "matched",
+      "title": "Matched",
+      "type": "checkbox",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "coa": [
+    {
+      "key": "accountCode",
+      "title": "Account Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountName",
+      "title": "Account Name",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "accountType",
+      "title": "Account Type",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Asset",
+        "Liability",
+        "Equity",
+        "Revenue",
+        "Expense"
+      ]
+    },
+    {
+      "key": "parentAccount",
+      "title": "Parent Account",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "normalBalance",
+      "title": "Normal Balance",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Debit",
+        "Credit"
+      ]
+    },
+    {
+      "key": "taxCategory",
+      "title": "Tax Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "active",
+      "title": "Active",
+      "type": "checkbox",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "master-customers": [
+    {
+      "key": "customerCode",
+      "title": "Customer Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "customerName",
+      "title": "Customer Name",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "legalName",
+      "title": "Legal Name",
+      "type": "text",
+      "editable": true,
+      "width": 190
+    },
+    {
+      "key": "industry",
+      "title": "Industry",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "npwp",
+      "title": "NPWP",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "nib",
+      "title": "NIB",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "address",
+      "title": "Address",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "city",
+      "title": "City",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "province",
+      "title": "Province",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "phone",
+      "title": "Phone",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "creditLimit",
+      "title": "Credit Limit",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "taxType",
+      "title": "Tax Type",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "master-vendors": [
+    {
+      "key": "vendorCode",
+      "title": "Vendor Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "vendorName",
+      "title": "Vendor Name",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "npwp",
+      "title": "NPWP",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "nib",
+      "title": "NIB",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "contact",
+      "title": "Contact",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "phone",
+      "title": "Phone",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "address",
+      "title": "Address",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "paymentTerms",
+      "title": "Payment Terms",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bank",
+      "title": "Bank",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountNumber",
+      "title": "Account Number",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "products": [
+    {
+      "key": "sku",
+      "title": "SKU",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "productCode",
+      "title": "Product Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "productName",
+      "title": "Product Name",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "type",
+      "title": "Type",
+      "type": "dropdown",
+      "editable": true,
+      "width": 120,
+      "source": [
+        "Product",
+        "Service"
+      ]
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unit",
+      "title": "Unit",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "purchasePrice",
+      "title": "Purchase Price",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "salesPrice",
+      "title": "Sales Price",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "warehouse",
+      "title": "Warehouse",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "minimumStock",
+      "title": "Minimum Stock",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "assets": [
+    {
+      "key": "assetCode",
+      "title": "Asset Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "assetName",
+      "title": "Asset Name",
+      "type": "text",
+      "editable": true,
+      "width": 190
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "acquisitionDate",
+      "title": "Acquisition Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "acquisitionCost",
+      "title": "Acquisition Cost",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "usefulLife",
+      "title": "Useful Life",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "depreciationMethod",
+      "title": "Depreciation Method",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accumulatedDepreciation",
+      "title": "Accum. Depreciation",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "bookValue",
+      "title": "Book Value",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "acquisitionCost-accumulatedDepreciation"
+    },
+    {
+      "key": "location",
+      "title": "Location",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "departments": [
+    {
+      "key": "departmentCode",
+      "title": "Department Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "departmentName",
+      "title": "Department Name",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "manager",
+      "title": "Manager",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "costCenter",
+      "title": "Cost Center",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "employees": [
+    {
+      "key": "employeeId",
+      "title": "Employee ID",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "name",
+      "title": "Name",
+      "type": "text",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "position",
+      "title": "Position",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 170
+    },
+    {
+      "key": "phone",
+      "title": "Phone",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "manager",
+      "title": "Manager",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "costCenter",
+      "title": "Cost Center",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "joinDate",
+      "title": "Join Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "warehouses": [
+    {
+      "key": "warehouseCode",
+      "title": "Warehouse Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "warehouseName",
+      "title": "Warehouse Name",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "location",
+      "title": "Location",
+      "type": "text",
+      "editable": true,
+      "width": 190
+    },
+    {
+      "key": "pic",
+      "title": "PIC",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "capacity",
+      "title": "Capacity",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "pricing-tax": [
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "customerType",
+      "title": "Customer Type",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "priceList",
+      "title": "Price List",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currency",
+      "title": "Currency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "unitPrice",
+      "title": "Unit Price",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "discount",
+      "title": "Discount",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "tax",
+      "title": "Tax",
+      "type": "percent",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "effectiveDate",
+      "title": "Effective Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "endDate",
+      "title": "End Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "banks": [
+    {
+      "key": "bank",
+      "title": "Bank",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountName",
+      "title": "Account Name",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accountNumber",
+      "title": "Account Number",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currency",
+      "title": "Currency",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "branch",
+      "title": "Branch",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "openingBalance",
+      "title": "Opening Balance",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "currentBalance",
+      "title": "Current Balance",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "generic-master": [
+    {
+      "key": "code",
+      "title": "Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "name",
+      "title": "Name",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "updatedBy",
+      "title": "Updated By",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "updatedDate",
+      "title": "Updated Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "meeting-agenda": [
+    {
+      "key": "agendaNo",
+      "title": "Agenda No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "meeting",
+      "title": "Meeting",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "topic",
+      "title": "Topic",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "presenter",
+      "title": "Presenter",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "priority",
+      "title": "Priority",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "duration",
+      "title": "Duration",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "meeting-resolutions": [
+    {
+      "key": "resolutionNo",
+      "title": "Resolution No",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "meeting",
+      "title": "Meeting",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "decision",
+      "title": "Decision",
+      "type": "text",
+      "editable": true,
+      "width": 240
+    },
+    {
+      "key": "responsible",
+      "title": "Responsible",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "dueDate",
+      "title": "Due Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "followUp",
+      "title": "Follow Up",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    }
+  ],
+  "meeting-documents": [
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "meeting",
+      "title": "Meeting",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "type",
+      "title": "Type",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "version",
+      "title": "Version",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "owner",
+      "title": "Owner",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "date",
+      "title": "Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "users": [
+    {
+      "key": "user",
+      "title": "User",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "email",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "role",
+      "title": "Role",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "department",
+      "title": "Department",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "accessLevel",
+      "title": "Access Level",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "lastLogin",
+      "title": "Last Login",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "workflow": [
+    {
+      "key": "workflow",
+      "title": "Workflow",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "module",
+      "title": "Module",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "step",
+      "title": "Step",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "approver",
+      "title": "Approver",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "threshold",
+      "title": "Threshold",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "sequence",
+      "title": "Sequence",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "numbering": [
+    {
+      "key": "documentType",
+      "title": "Document Type",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "prefix",
+      "title": "Prefix",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "format",
+      "title": "Format",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "currentNumber",
+      "title": "Current Number",
+      "type": "number",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "resetPeriod",
+      "title": "Reset Period",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "example",
+      "title": "Example",
+      "type": "text",
+      "editable": true,
+      "width": 160
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "audit": [
+    {
+      "key": "dateTime",
+      "title": "Date & Time",
+      "type": "date",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "user",
+      "title": "User",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "module",
+      "title": "Module",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "action",
+      "title": "Action",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "record",
+      "title": "Record",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "oldValue",
+      "title": "Old Value",
+      "type": "text",
+      "editable": false,
+      "width": 180
+    },
+    {
+      "key": "newValue",
+      "title": "New Value",
+      "type": "text",
+      "editable": false,
+      "width": 180
+    },
+    {
+      "key": "ipAddress",
+      "title": "IP Address",
+      "type": "text",
+      "editable": false,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": false,
+      "width": 120
+    }
+  ],
+  "report": [
+    {
+      "key": "period",
+      "title": "Period",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "document",
+      "title": "Document",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "entity",
+      "title": "Entity",
+      "type": "text",
+      "editable": true,
+      "width": 180
+    },
+    {
+      "key": "category",
+      "title": "Category",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "amount",
+      "title": "Amount",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "budget",
+      "title": "Budget",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "variance",
+      "title": "Variance",
+      "type": "currency",
+      "editable": false,
+      "width": 120,
+      "formula": "budget-amount"
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    }
+  ],
+  "generic": [
+    {
+      "key": "code",
+      "title": "Code",
+      "type": "text",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "name",
+      "title": "Name",
+      "type": "text",
+      "editable": true,
+      "width": 200
+    },
+    {
+      "key": "description",
+      "title": "Description",
+      "type": "text",
+      "editable": true,
+      "width": 220
+    },
+    {
+      "key": "value",
+      "title": "Value",
+      "type": "currency",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "status",
+      "title": "Status",
+      "type": "status",
+      "editable": true,
+      "width": 120
+    },
+    {
+      "key": "updatedDate",
+      "title": "Updated Date",
+      "type": "date",
+      "editable": true,
+      "width": 120
+    }
+  ]
+}

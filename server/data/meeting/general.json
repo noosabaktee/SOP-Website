@@ -1,0 +1,16 @@
+[
+  {
+    "id": "MTG-2026-009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "meetingNo": "MTG-2026-009",
+    "meetingType": "Management Review",
+    "date": "22 Sep 2026",
+    "time": "09:00 - 11:00",
+    "location": "Sentul Meeting Room",
+    "chairman": "Irpan Hidayat Pamil",
+    "participants": "Management, Project, Finance",
+    "status": "Scheduled",
+    "agenda": "1. Operational performance\n2. Project delivery\n3. Sales pipeline\n4. Finance and cash flow\n5. Action items"
+  }
+]

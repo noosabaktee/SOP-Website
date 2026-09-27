@@ -1,0 +1,122 @@
+[
+  {
+    "id": "LEAD-0001",
+    "name": "Andi Pratama",
+    "company": "PT ABC Kogen Dairy",
+    "email": "lead1@example.co.id",
+    "phone": "+62 812 3456 7890",
+    "source": "Website",
+    "status": "New",
+    "potentialValue": 250000000,
+    "assignedTo": "Budi Santoso",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0002",
+    "name": "Siti Rahmawati",
+    "company": "PT Kalbe Morinaga Indonesia",
+    "email": "lead2@example.co.id",
+    "phone": "+62 812 3456 7891",
+    "source": "Referral",
+    "status": "In Progress",
+    "potentialValue": 287500000,
+    "assignedTo": "Sari Dewi",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0003",
+    "name": "Budi Kurniawan",
+    "company": "PT Uniguard",
+    "email": "lead3@example.co.id",
+    "phone": "+62 812 3456 7892",
+    "source": "Event",
+    "status": "Qualified",
+    "potentialValue": 325000000,
+    "assignedTo": "Andi Wijaya",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0004",
+    "name": "Rina Sari",
+    "company": "PT Dankos Farma",
+    "email": "lead4@example.co.id",
+    "phone": "+62 812 3456 7893",
+    "source": "LinkedIn",
+    "status": "Nurturing",
+    "potentialValue": 362500000,
+    "assignedTo": "Rina Marlina",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0005",
+    "name": "Andi Pratama",
+    "company": "PT Pupuk Kujang",
+    "email": "lead5@example.co.id",
+    "phone": "+62 812 3456 7894",
+    "source": "Website",
+    "status": "New",
+    "potentialValue": 400000000,
+    "assignedTo": "Budi Santoso",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0006",
+    "name": "Siti Rahmawati",
+    "company": "PT Cimory",
+    "email": "lead6@example.co.id",
+    "phone": "+62 812 3456 7895",
+    "source": "Referral",
+    "status": "In Progress",
+    "potentialValue": 437500000,
+    "assignedTo": "Sari Dewi",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0007",
+    "name": "Budi Kurniawan",
+    "company": "PT ABC Kogen Dairy",
+    "email": "lead7@example.co.id",
+    "phone": "+62 812 3456 7896",
+    "source": "Event",
+    "status": "Qualified",
+    "potentialValue": 475000000,
+    "assignedTo": "Andi Wijaya",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0008",
+    "name": "Rina Sari",
+    "company": "PT Kalbe Morinaga Indonesia",
+    "email": "lead8@example.co.id",
+    "phone": "+62 812 3456 7897",
+    "source": "LinkedIn",
+    "status": "Nurturing",
+    "potentialValue": 512500000,
+    "assignedTo": "Rina Marlina",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0009",
+    "name": "Andi Pratama",
+    "company": "PT Uniguard",
+    "email": "lead9@example.co.id",
+    "phone": "+62 812 3456 7898",
+    "source": "Website",
+    "status": "New",
+    "potentialValue": 550000000,
+    "assignedTo": "Budi Santoso",
+    "createdDate": "16 Sep 2026"
+  },
+  {
+    "id": "LEAD-0010",
+    "name": "Siti Rahmawati",
+    "company": "PT Dankos Farma",
+    "email": "lead10@example.co.id",
+    "phone": "+62 812 3456 7899",
+    "source": "Referral",
+    "status": "In Progress",
+    "potentialValue": 587500000,
+    "assignedTo": "Sari Dewi",
+    "createdDate": "16 Sep 2026"
+  }
+]

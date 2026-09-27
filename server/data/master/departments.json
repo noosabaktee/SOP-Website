@@ -1,0 +1,156 @@
+[
+  {
+    "id": "MD-0001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0001",
+    "departmentName": "Department Name 1",
+    "manager": "Manager 1",
+    "costCenter": "Cost Center 1",
+    "budget": 180000000,
+    "status": "Draft"
+  },
+  {
+    "id": "MD-0002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0002",
+    "departmentName": "Department Name 2",
+    "manager": "Manager 2",
+    "costCenter": "Cost Center 2",
+    "budget": 237500000,
+    "status": "Pending Approval"
+  },
+  {
+    "id": "MD-0003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0003",
+    "departmentName": "Department Name 3",
+    "manager": "Manager 3",
+    "costCenter": "Cost Center 3",
+    "budget": 295000000,
+    "status": "Approved"
+  },
+  {
+    "id": "MD-0004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0004",
+    "departmentName": "Department Name 4",
+    "manager": "Manager 4",
+    "costCenter": "Cost Center 4",
+    "budget": 352500000,
+    "status": "In Progress"
+  },
+  {
+    "id": "MD-0005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0005",
+    "departmentName": "Department Name 5",
+    "manager": "Manager 5",
+    "costCenter": "Cost Center 5",
+    "budget": 410000000,
+    "status": "Completed"
+  },
+  {
+    "id": "MD-0006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0006",
+    "departmentName": "Department Name 6",
+    "manager": "Manager 6",
+    "costCenter": "Cost Center 6",
+    "budget": 467500000,
+    "status": "Active"
+  },
+  {
+    "id": "MD-0007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0007",
+    "departmentName": "Department Name 7",
+    "manager": "Manager 7",
+    "costCenter": "Cost Center 7",
+    "budget": 525000000,
+    "status": "Rejected"
+  },
+  {
+    "id": "MD-0008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0008",
+    "departmentName": "Department Name 8",
+    "manager": "Manager 8",
+    "costCenter": "Cost Center 8",
+    "budget": 582500000,
+    "status": "Draft"
+  },
+  {
+    "id": "MD-0009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0009",
+    "departmentName": "Department Name 9",
+    "manager": "Manager 9",
+    "costCenter": "Cost Center 9",
+    "budget": 640000000,
+    "status": "Pending Approval"
+  },
+  {
+    "id": "MD-0010",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0010",
+    "departmentName": "Department Name 10",
+    "manager": "Manager 10",
+    "costCenter": "Cost Center 10",
+    "budget": 697500000,
+    "status": "Approved"
+  },
+  {
+    "id": "MD-0011",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0011",
+    "departmentName": "Department Name 11",
+    "manager": "Manager 11",
+    "costCenter": "Cost Center 11",
+    "budget": 755000000,
+    "status": "In Progress"
+  },
+  {
+    "id": "MD-0012",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0012",
+    "departmentName": "Department Name 12",
+    "manager": "Manager 12",
+    "costCenter": "Cost Center 12",
+    "budget": 812500000,
+    "status": "Completed"
+  },
+  {
+    "id": "MD-0013",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0013",
+    "departmentName": "Department Name 13",
+    "manager": "Manager 13",
+    "costCenter": "Cost Center 13",
+    "budget": 870000000,
+    "status": "Active"
+  },
+  {
+    "id": "MD-0014",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "departmentCode": "MD-2026-0014",
+    "departmentName": "Department Name 14",
+    "manager": "Manager 14",
+    "costCenter": "Cost Center 14",
+    "budget": 927500000,
+    "status": "Rejected"
+  }
+]

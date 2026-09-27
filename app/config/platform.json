@@ -1,0 +1,1642 @@
+{
+  "company": "PT Sinergi Bisnis Indonesia",
+  "product": "SOP",
+  "fullName": "Sinergi Operational Platform",
+  "tagline": "Integrated Operations for a Better Tomorrow",
+  "routes": {
+    "/crm/prospects": {
+      "title": "Prospects",
+      "description": "Manage qualified potential customers and move them toward commercial opportunities.",
+      "schema": "prospects",
+      "type": "grid",
+      "module": "CRM & Sales",
+      "statusFilter": "",
+      "prefix": "PRSP",
+      "kpis": [
+        "Total Prospects",
+        "New Prospects",
+        "Qualified",
+        "Proposal",
+        "Converted"
+      ]
+    },
+    "/crm/customers": {
+      "title": "Customers",
+      "description": "Manage customer accounts, commercial terms, contacts, and connected business records.",
+      "schema": "customers",
+      "type": "grid",
+      "module": "CRM & Sales",
+      "statusFilter": "",
+      "prefix": "CUST",
+      "kpis": [
+        "Total Customers",
+        "Active Customers",
+        "New This Month",
+        "Top Customers",
+        "Inactive Customers"
+      ]
+    },
+    "/crm/activities": {
+      "title": "Activities",
+      "description": "Plan and track calls, email, meetings, visits, follow-ups, WhatsApp, and tasks.",
+      "schema": "activities",
+      "type": "calendar-list",
+      "module": "CRM & Sales",
+      "statusFilter": "",
+      "prefix": "ACT",
+      "kpis": [
+        "Activities Today",
+        "Open Follow Ups",
+        "Meetings",
+        "Overdue",
+        "Completed"
+      ]
+    },
+    "/crm/sales-pipeline": {
+      "title": "Sales Pipeline",
+      "description": "Visualize opportunities across qualification, proposal, negotiation, won, and lost stages.",
+      "schema": "pipeline",
+      "type": "kanban",
+      "module": "CRM & Sales",
+      "statusFilter": "",
+      "prefix": "OPP",
+      "kpis": [
+        "Pipeline Value",
+        "Weighted Pipeline",
+        "Won",
+        "Lost"
+      ]
+    },
+    "/quotation": {
+      "title": "Quotation List",
+      "description": "Manage quotations from draft through customer approval.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": null,
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/draft": {
+      "title": "Draft",
+      "description": "Quotations saved as drafts and not yet submitted.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Draft",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/pending-approval": {
+      "title": "Pending Approval",
+      "description": "Quotations currently waiting for internal approval.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Pending Approval",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/sent": {
+      "title": "Sent",
+      "description": "Quotations sent to customers.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Sent",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/negotiation": {
+      "title": "Negotiation",
+      "description": "Quotations in commercial negotiation.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Negotiation",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/approved": {
+      "title": "Approved",
+      "description": "Approved quotations ready to convert into sales orders.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Approved",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/rejected": {
+      "title": "Rejected",
+      "description": "Rejected quotations with documented reasons.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Rejected",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/expired": {
+      "title": "Expired",
+      "description": "Expired quotations that can be renewed.",
+      "schema": "quotation",
+      "type": "grid",
+      "module": "Quotation",
+      "statusFilter": "Expired",
+      "prefix": "QT",
+      "kpis": [
+        "Total Quotations",
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Grand Total"
+      ]
+    },
+    "/quotation/create": {
+      "title": "Create Quotation",
+      "description": "Create a structured customer quotation with editable line items, taxes, discounts, and approval workflow.",
+      "schema": "quotation-items",
+      "type": "document-editor",
+      "module": "Quotation",
+      "statusFilter": null,
+      "prefix": "QT",
+      "kpis": [
+        "Subtotal",
+        "Discount",
+        "Tax",
+        "Grand Total"
+      ]
+    },
+    "/sales/orders": {
+      "title": "Sales Order",
+      "description": "Manage customer sales orders linked to approved quotations and projects.",
+      "schema": "sales-orders",
+      "type": "grid",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "SO",
+      "kpis": [
+        "Total Orders",
+        "Open Orders",
+        "Delivered",
+        "Invoiced",
+        "Order Value"
+      ]
+    },
+    "/sales/delivery": {
+      "title": "Delivery / BAST",
+      "description": "Schedule deliveries, record delivered quantities, and manage signed BAST documents.",
+      "schema": "delivery",
+      "type": "grid",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "BAST",
+      "kpis": [
+        "Scheduled",
+        "Delivered",
+        "Signed",
+        "Pending",
+        "Delivery Value"
+      ]
+    },
+    "/sales/invoices": {
+      "title": "Invoice",
+      "description": "Manage sales invoices, due dates, outstanding balances, and payment status.",
+      "schema": "invoice",
+      "type": "grid",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "INV",
+      "kpis": [
+        "Total Invoices",
+        "Issued",
+        "Partially Paid",
+        "Paid",
+        "Outstanding"
+      ]
+    },
+    "/sales/returns": {
+      "title": "Sales Return",
+      "description": "Manage requested, approved, received, and completed sales returns.",
+      "schema": "sales-return",
+      "type": "grid",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "SR",
+      "kpis": [
+        "Returns",
+        "Requested",
+        "Approved",
+        "Received",
+        "Return Value"
+      ]
+    },
+    "/sales/payments": {
+      "title": "Payment Receipt",
+      "description": "Record receipts, allocate customer payments, and print payment evidence.",
+      "schema": "payment-receipt",
+      "type": "grid",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "RCPT",
+      "kpis": [
+        "Receipts",
+        "Today",
+        "Allocated",
+        "Unallocated",
+        "Amount"
+      ]
+    },
+    "/sales/receivables": {
+      "title": "Accounts Receivable",
+      "description": "Monitor receivable aging, customer exposure, collectors, and overdue invoices.",
+      "schema": "receivable",
+      "type": "aging",
+      "module": "Sales",
+      "statusFilter": null,
+      "prefix": "AR",
+      "kpis": [
+        "Current",
+        "1-30 Days",
+        "31-60 Days",
+        "61-90 Days",
+        ">90 Days"
+      ]
+    },
+    "/project": {
+      "title": "Project List",
+      "description": "Manage the company project portfolio, owners, schedules, progress, revenue, cost, and margin.",
+      "schema": "projects",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": [
+        "Active Projects",
+        "On Track",
+        "At Risk",
+        "Completed",
+        "Project Value"
+      ]
+    },
+    "/project/dashboard": {
+      "title": "Project Dashboard",
+      "description": "Monitor a selected project's commercial, schedule, task, milestone, risk, and financial performance.",
+      "schema": "project-dashboard",
+      "type": "project-dashboard",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/planning": {
+      "title": "Planning",
+      "description": "Define project objective, scope, deliverables, assumptions, team, budget, schedule, and risks.",
+      "schema": "planning",
+      "type": "planning",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/wbs": {
+      "title": "WBS",
+      "description": "Build and manage the project work breakdown structure with hierarchical work packages and tasks.",
+      "schema": "wbs",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/tasks": {
+      "title": "Task & Subtask",
+      "description": "Manage project tasks, subtasks, dependencies, priorities, owners, due dates, and progress.",
+      "schema": "tasks",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/gantt": {
+      "title": "Gantt Chart",
+      "description": "Visualize project tasks on a timeline and adjust dates, duration, dependency, and progress.",
+      "schema": "tasks",
+      "type": "gantt",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/milestones": {
+      "title": "Milestone",
+      "description": "Track milestone due dates, deliverables, approvals, progress, and responsible PICs.",
+      "schema": "milestones",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/team": {
+      "title": "Team & PIC",
+      "description": "Manage project resources, roles, allocation, rates, dates, and status.",
+      "schema": "team",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/progress": {
+      "title": "Progress",
+      "description": "Compare planned and actual project progress and analyze variance through an S-Curve.",
+      "schema": "progress",
+      "type": "progress",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/budget": {
+      "title": "Budget & RAB",
+      "description": "Plan detailed project RAB using spreadsheet-style quantities, unit rates, categories, vendors, and calculated budgets.",
+      "schema": "budget",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/cost": {
+      "title": "Project Cost",
+      "description": "Track budget versus actual project cost, variance, vendor, document, and approval status.",
+      "schema": "project-cost",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/procurement": {
+      "title": "Project Procurement",
+      "description": "Trace project procurement from purchase request through PO, receipt, invoice, and payment.",
+      "schema": "project-procurement",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/documents": {
+      "title": "Project Documents",
+      "description": "Manage project document versions, owners, categories, status, preview, sharing, and downloads.",
+      "schema": "documents",
+      "type": "grid",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/project/profitability": {
+      "title": "Project Profitability",
+      "description": "Analyze revenue, cost composition, profit, and project margin using connected commercial data.",
+      "schema": "profitability",
+      "type": "profitability",
+      "module": "Project",
+      "statusFilter": null,
+      "prefix": "PRJ",
+      "kpis": []
+    },
+    "/purchase/request": {
+      "title": "Purchase Request",
+      "description": "Create, submit, approve, and track project or departmental purchase requests.",
+      "schema": "purchase-request",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "PR",
+      "kpis": [
+        "Total",
+        "Open",
+        "Approved",
+        "Completed",
+        "Value"
+      ]
+    },
+    "/purchase/orders": {
+      "title": "Purchase Order",
+      "description": "Manage vendor purchase orders, commercial terms, project links, item values, and approvals.",
+      "schema": "purchase-order",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "PO",
+      "kpis": [
+        "Total",
+        "Open",
+        "Approved",
+        "Completed",
+        "Value"
+      ]
+    },
+    "/purchase/receipts": {
+      "title": "Goods Receipt",
+      "description": "Record goods receipts against purchase orders and warehouse destinations.",
+      "schema": "goods-receipt",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "GR",
+      "kpis": []
+    },
+    "/purchase/returns": {
+      "title": "Purchase Return",
+      "description": "Manage vendor returns linked to purchase orders and goods receipts.",
+      "schema": "purchase-return",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "PRTN",
+      "kpis": []
+    },
+    "/purchase/vendors": {
+      "title": "Vendors",
+      "description": "Maintain procurement vendor profiles, categories, payment terms, ratings, and status.",
+      "schema": "vendors",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "VND",
+      "kpis": []
+    },
+    "/purchase/contracts": {
+      "title": "Prices & Contracts",
+      "description": "Manage contracted vendor pricing, periods, minimum quantities, and commercial terms.",
+      "schema": "contracts",
+      "type": "grid",
+      "module": "Purchase",
+      "statusFilter": null,
+      "prefix": "CTR",
+      "kpis": []
+    },
+    "/inventory/stock": {
+      "title": "Stock",
+      "description": "Monitor SKU stock by warehouse, location, reserved quantity, availability, stock value, and stock health.",
+      "schema": "stock",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "SKU",
+      "kpis": [
+        "SKUs",
+        "Stock Value",
+        "Low Stock",
+        "Out of Stock",
+        "Warehouses"
+      ]
+    },
+    "/inventory/movement": {
+      "title": "Stock Movement",
+      "description": "Review stock receipts, issues, transfers, returns, adjustments, and running balances.",
+      "schema": "stock-movement",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "MOV",
+      "kpis": []
+    },
+    "/inventory/transfer": {
+      "title": "Warehouse Transfer",
+      "description": "Manage requests and approvals for product transfers between warehouses.",
+      "schema": "warehouse-transfer",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "TRF",
+      "kpis": []
+    },
+    "/inventory/opname": {
+      "title": "Stock Opname",
+      "description": "Compare system quantity with physical counts and calculate inventory differences.",
+      "schema": "stock-opname",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "SO",
+      "kpis": []
+    },
+    "/inventory/adjustment": {
+      "title": "Stock Adjustment",
+      "description": "Record approved stock adjustments with reasons, system quantity, and final quantity.",
+      "schema": "stock-adjustment",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "ADJ",
+      "kpis": []
+    },
+    "/inventory/stock-card": {
+      "title": "Stock Card",
+      "description": "Review detailed stock ledger movements, unit cost, running balance, and references.",
+      "schema": "stock-card",
+      "type": "grid",
+      "module": "Inventory",
+      "statusFilter": null,
+      "prefix": "SC",
+      "kpis": []
+    },
+    "/finance/transactions/sales": {
+      "title": "Sales Transactions",
+      "description": "Review sales postings, customer accounts, tax, debit, credit, and accounting status.",
+      "schema": "finance-transaction",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "JV",
+      "kpis": []
+    },
+    "/finance/transactions/purchases": {
+      "title": "Purchase Transactions",
+      "description": "Review purchase postings, vendor accounts, tax, debit, credit, and accounting status.",
+      "schema": "finance-transaction",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "JV",
+      "kpis": []
+    },
+    "/finance/transactions/expenses": {
+      "title": "Expenses",
+      "description": "Record operating and project expenses with account, payment method, tax, and attachment.",
+      "schema": "expenses",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "EXP",
+      "kpis": []
+    },
+    "/finance/transactions/receipts": {
+      "title": "Receipts",
+      "description": "Review customer receipts, invoices, accounts, bank or cash destination, and status.",
+      "schema": "finance-receipts",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "RCPT",
+      "kpis": []
+    },
+    "/finance/transactions/adjustments": {
+      "title": "Adjusting Entries",
+      "description": "Create balanced accounting adjustments with debit, credit, tax, project, and department dimensions.",
+      "schema": "journal-entry",
+      "type": "journal",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "ADJ",
+      "kpis": []
+    },
+    "/finance/accounting/journal": {
+      "title": "General Journal",
+      "description": "Review and edit accounting journal lines with debit-credit validation and source references.",
+      "schema": "general-journal",
+      "type": "journal",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "JRN",
+      "kpis": []
+    },
+    "/finance/accounting/trial-balance": {
+      "title": "Trial Balance",
+      "description": "Analyze opening, period, and closing debit-credit balances by account.",
+      "schema": "trial-balance",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "ACC",
+      "kpis": []
+    },
+    "/finance/accounting/balance-sheet": {
+      "title": "Balance Sheet",
+      "description": "Review assets, liabilities, and equity using expandable account group reporting.",
+      "schema": "balance-sheet",
+      "type": "statement",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "",
+      "kpis": []
+    },
+    "/finance/accounting/income-statement": {
+      "title": "Income Statement",
+      "description": "Analyze revenue, cost of sales, gross profit, operating expenses, and net profit.",
+      "schema": "income-statement",
+      "type": "statement",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "",
+      "kpis": []
+    },
+    "/finance/accounting/cash-flow": {
+      "title": "Cash Flow Statement",
+      "description": "Analyze cash movement across operating, investing, and financing activities.",
+      "schema": "cash-flow",
+      "type": "statement",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "",
+      "kpis": []
+    },
+    "/finance/accounting/reconciliation": {
+      "title": "Reconciliation",
+      "description": "Match accounting book transactions with external amounts and resolve differences.",
+      "schema": "reconciliation",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "REC",
+      "kpis": []
+    },
+    "/finance/accounting/closing": {
+      "title": "Closing Entries",
+      "description": "Review financial period results and securely close accounting periods.",
+      "schema": "closing",
+      "type": "closing",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "CLS",
+      "kpis": []
+    },
+    "/finance/cash": {
+      "title": "Cash",
+      "description": "Review cash inflows, outflows, balances, accounts, references, and descriptions.",
+      "schema": "cash",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "CSH",
+      "kpis": []
+    },
+    "/finance/bank": {
+      "title": "Bank Accounts",
+      "description": "Manage company bank accounts, currencies, opening balances, current balances, and status.",
+      "schema": "bank-accounts",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "BNK",
+      "kpis": []
+    },
+    "/finance/transfers": {
+      "title": "Transfers",
+      "description": "Track transfers between company cash and bank accounts.",
+      "schema": "bank-transfers",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "TRF",
+      "kpis": []
+    },
+    "/finance/bank-reconciliation": {
+      "title": "Bank Reconciliation",
+      "description": "Match bank transactions to book transactions with auto-match and manual matching workflows.",
+      "schema": "bank-reconciliation",
+      "type": "grid",
+      "module": "Finance & Accounting",
+      "statusFilter": null,
+      "prefix": "BRC",
+      "kpis": []
+    },
+    "/reports/financial": {
+      "title": "Financial Reports",
+      "description": "Analyze financial reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/tax": {
+      "title": "Tax Reports",
+      "description": "Analyze tax reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/management": {
+      "title": "Management Reports",
+      "description": "Analyze management reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/sales": {
+      "title": "Sales Reports",
+      "description": "Analyze sales reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/purchase": {
+      "title": "Purchase Reports",
+      "description": "Analyze purchase reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/project": {
+      "title": "Project Reports",
+      "description": "Analyze project reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/inventory": {
+      "title": "Inventory Reports",
+      "description": "Analyze inventory reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/assets": {
+      "title": "Asset Reports",
+      "description": "Analyze asset reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/reports/other": {
+      "title": "Other Reports",
+      "description": "Analyze other reports with period, company, department, and project filters plus export-ready charts and tables.",
+      "schema": "report",
+      "type": "report",
+      "module": "Reports",
+      "statusFilter": null,
+      "prefix": "RPT",
+      "kpis": []
+    },
+    "/master/company": {
+      "title": "Company Information",
+      "description": "Maintain legal company identity, contact details, tax identifiers, bank, currency, and fiscal year.",
+      "schema": "company",
+      "type": "company-form",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/coa": {
+      "title": "Chart of Accounts",
+      "description": "Maintain hierarchical financial accounts, types, parent accounts, normal balances, tax categories, and active status.",
+      "schema": "coa",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/customers": {
+      "title": "Customers",
+      "description": "Maintain the master customer database used across CRM, quotations, sales, projects, and finance.",
+      "schema": "master-customers",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/vendors": {
+      "title": "Vendors",
+      "description": "Maintain vendor legal, commercial, payment, bank, and contact information.",
+      "schema": "master-vendors",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/products": {
+      "title": "Products & Services",
+      "description": "Maintain products and services, prices, tax, units, warehouses, and stock controls.",
+      "schema": "products",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/assets": {
+      "title": "Assets",
+      "description": "Maintain fixed assets, acquisition values, useful life, depreciation, book value, location, and PIC.",
+      "schema": "assets",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/departments": {
+      "title": "Departments",
+      "description": "Maintain departments, managers, cost centers, budgets, and status.",
+      "schema": "departments",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/employees": {
+      "title": "Employees",
+      "description": "Maintain employee organization, position, contacts, manager, cost center, join date, and status.",
+      "schema": "employees",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/warehouses": {
+      "title": "Warehouses",
+      "description": "Maintain warehouse codes, locations, PICs, capacities, and status.",
+      "schema": "warehouses",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/pricing-tax": {
+      "title": "Pricing & Tax",
+      "description": "Maintain customer pricing, discounts, taxes, currencies, and effective periods.",
+      "schema": "pricing-tax",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/banks": {
+      "title": "Banks",
+      "description": "Maintain company bank master records, account details, balances, branches, and status.",
+      "schema": "banks",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/master/others": {
+      "title": "Others",
+      "description": "Maintain additional shared reference data used by SOP business modules.",
+      "schema": "generic-master",
+      "type": "grid",
+      "module": "Master Data",
+      "statusFilter": null,
+      "prefix": "MD",
+      "kpis": []
+    },
+    "/documents": {
+      "title": "All Documents",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/documents/projects": {
+      "title": "Project Documents",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/documents/quotations": {
+      "title": "Quotation Documents",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/documents/sales": {
+      "title": "Sales Documents",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/documents/purchases": {
+      "title": "Purchase Documents",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/documents/templates": {
+      "title": "Document Templates",
+      "description": "Manage document versions, categories, related business records, owners, sharing, preview, download, and archive status.",
+      "schema": "documents",
+      "type": "documents",
+      "module": "Documents",
+      "statusFilter": null,
+      "prefix": "DOC",
+      "kpis": []
+    },
+    "/meeting/agenda": {
+      "title": "Meeting Agenda",
+      "description": "Manage structured meeting agenda items, presenters, priority, duration, and status.",
+      "schema": "meeting-agenda",
+      "type": "grid",
+      "module": "General Meeting",
+      "statusFilter": null,
+      "prefix": "MTG",
+      "kpis": []
+    },
+    "/meeting/general": {
+      "title": "General Meeting",
+      "description": "Create and manage general meetings, participants, agenda, chairman, timing, location, and status.",
+      "schema": "meeting-general",
+      "type": "meeting-form",
+      "module": "General Meeting",
+      "statusFilter": null,
+      "prefix": "MTG",
+      "kpis": []
+    },
+    "/meeting/resolutions": {
+      "title": "Meeting Resolutions",
+      "description": "Track approved meeting decisions, responsible owners, due dates, status, and follow-up.",
+      "schema": "meeting-resolutions",
+      "type": "grid",
+      "module": "General Meeting",
+      "statusFilter": null,
+      "prefix": "MTG",
+      "kpis": []
+    },
+    "/meeting/documents": {
+      "title": "Meeting Documents",
+      "description": "Manage meeting documents, versions, types, owners, dates, and status.",
+      "schema": "meeting-documents",
+      "type": "grid",
+      "module": "General Meeting",
+      "statusFilter": null,
+      "prefix": "MTG",
+      "kpis": []
+    },
+    "/settings/users": {
+      "title": "Users & Access Control",
+      "description": "Manage users, roles, departments, access levels, last login, status, and permission matrices.",
+      "schema": "users",
+      "type": "users-matrix",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/workflow": {
+      "title": "Approval Workflow",
+      "description": "Configure reusable approval workflows, steps, thresholds, approvers, sequences, and activation status.",
+      "schema": "workflow",
+      "type": "workflow",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/numbering": {
+      "title": "Document Numbering",
+      "description": "Configure document prefixes, numbering formats, reset periods, examples, and current counters.",
+      "schema": "numbering",
+      "type": "grid",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/integrations": {
+      "title": "Integrations",
+      "description": "Connect and configure Microsoft 365, WhatsApp, email, bank, tax, payment, cloud, and API services.",
+      "schema": "integrations",
+      "type": "integrations",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/notifications": {
+      "title": "Notifications",
+      "description": "Configure email, WhatsApp, and in-app notifications for business events and alerts.",
+      "schema": "notifications",
+      "type": "notifications",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/audit": {
+      "title": "Audit Trail",
+      "description": "Review read-only system audit history across modules, records, users, old values, new values, IP address, and status.",
+      "schema": "audit",
+      "type": "grid",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/backup": {
+      "title": "Backup & Restore",
+      "description": "Manage system backups, download backup files, and safely restore data with confirmation.",
+      "schema": "backup",
+      "type": "backup",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    },
+    "/settings/parameters": {
+      "title": "System Parameters",
+      "description": "Configure currency, fiscal year, date format, timezone, tax, warehouse, payment terms, and number format.",
+      "schema": "parameters",
+      "type": "parameters",
+      "module": "Settings",
+      "statusFilter": null,
+      "prefix": "SET",
+      "kpis": []
+    }
+  },
+  "menu": [
+    {
+      "label": "Dashboard",
+      "icon": "home",
+      "route": "/dashboard"
+    },
+    {
+      "label": "CRM & Sales",
+      "icon": "users",
+      "children": [
+        {
+          "label": "Leads",
+          "route": "/crm/leads"
+        },
+        {
+          "label": "Prospects",
+          "route": "/crm/prospects"
+        },
+        {
+          "label": "Customers",
+          "route": "/crm/customers"
+        },
+        {
+          "label": "Activities",
+          "route": "/crm/activities"
+        },
+        {
+          "label": "Sales Pipeline",
+          "route": "/crm/sales-pipeline"
+        }
+      ]
+    },
+    {
+      "label": "Quotation",
+      "icon": "file",
+      "children": [
+        {
+          "label": "Quotation List",
+          "route": "/quotation"
+        },
+        {
+          "label": "Create Quotation",
+          "route": "/quotation/create"
+        },
+        {
+          "label": "Draft",
+          "route": "/quotation/draft"
+        },
+        {
+          "label": "Pending Approval",
+          "route": "/quotation/pending-approval"
+        },
+        {
+          "label": "Sent",
+          "route": "/quotation/sent"
+        },
+        {
+          "label": "Negotiation",
+          "route": "/quotation/negotiation"
+        },
+        {
+          "label": "Approved",
+          "route": "/quotation/approved"
+        },
+        {
+          "label": "Rejected",
+          "route": "/quotation/rejected"
+        },
+        {
+          "label": "Expired",
+          "route": "/quotation/expired"
+        }
+      ]
+    },
+    {
+      "label": "Sales",
+      "icon": "cart",
+      "children": [
+        {
+          "label": "Sales Order",
+          "route": "/sales/orders"
+        },
+        {
+          "label": "Delivery / BAST",
+          "route": "/sales/delivery"
+        },
+        {
+          "label": "Invoice",
+          "route": "/sales/invoices"
+        },
+        {
+          "label": "Sales Return",
+          "route": "/sales/returns"
+        },
+        {
+          "label": "Payment Receipt",
+          "route": "/sales/payments"
+        },
+        {
+          "label": "Accounts Receivable",
+          "route": "/sales/receivables"
+        }
+      ]
+    },
+    {
+      "label": "Project",
+      "icon": "briefcase",
+      "children": [
+        {
+          "label": "Project List",
+          "route": "/project"
+        },
+        {
+          "label": "Project Dashboard",
+          "route": "/project/dashboard"
+        },
+        {
+          "label": "Planning",
+          "route": "/project/planning"
+        },
+        {
+          "label": "WBS",
+          "route": "/project/wbs"
+        },
+        {
+          "label": "Task & Subtask",
+          "route": "/project/tasks"
+        },
+        {
+          "label": "Gantt Chart",
+          "route": "/project/gantt"
+        },
+        {
+          "label": "Milestone",
+          "route": "/project/milestones"
+        },
+        {
+          "label": "Team & PIC",
+          "route": "/project/team"
+        },
+        {
+          "label": "Progress",
+          "route": "/project/progress"
+        },
+        {
+          "label": "Budget & RAB",
+          "route": "/project/budget"
+        },
+        {
+          "label": "Project Cost",
+          "route": "/project/cost"
+        },
+        {
+          "label": "Project Procurement",
+          "route": "/project/procurement"
+        },
+        {
+          "label": "Project Documents",
+          "route": "/project/documents"
+        },
+        {
+          "label": "Project Profitability",
+          "route": "/project/profitability"
+        }
+      ]
+    },
+    {
+      "label": "Purchase",
+      "icon": "cart",
+      "children": [
+        {
+          "label": "Purchase Request",
+          "route": "/purchase/request"
+        },
+        {
+          "label": "Purchase Order",
+          "route": "/purchase/orders"
+        },
+        {
+          "label": "Goods Receipt",
+          "route": "/purchase/receipts"
+        },
+        {
+          "label": "Purchase Return",
+          "route": "/purchase/returns"
+        },
+        {
+          "label": "Vendors",
+          "route": "/purchase/vendors"
+        },
+        {
+          "label": "Prices & Contracts",
+          "route": "/purchase/contracts"
+        }
+      ]
+    },
+    {
+      "label": "Inventory",
+      "icon": "box",
+      "children": [
+        {
+          "label": "Stock",
+          "route": "/inventory/stock"
+        },
+        {
+          "label": "Stock Movement",
+          "route": "/inventory/movement"
+        },
+        {
+          "label": "Warehouse Transfer",
+          "route": "/inventory/transfer"
+        },
+        {
+          "label": "Stock Opname",
+          "route": "/inventory/opname"
+        },
+        {
+          "label": "Stock Adjustment",
+          "route": "/inventory/adjustment"
+        },
+        {
+          "label": "Stock Card",
+          "route": "/inventory/stock-card"
+        }
+      ]
+    },
+    {
+      "label": "Finance & Accounting",
+      "icon": "chart",
+      "groups": [
+        {
+          "label": "Transactions",
+          "children": [
+            {
+              "label": "Sales",
+              "route": "/finance/transactions/sales"
+            },
+            {
+              "label": "Purchases",
+              "route": "/finance/transactions/purchases"
+            },
+            {
+              "label": "Expenses",
+              "route": "/finance/transactions/expenses"
+            },
+            {
+              "label": "Receipts",
+              "route": "/finance/transactions/receipts"
+            },
+            {
+              "label": "Adjusting Entries",
+              "route": "/finance/transactions/adjustments"
+            }
+          ]
+        },
+        {
+          "label": "Accounting",
+          "children": [
+            {
+              "label": "General Journal",
+              "route": "/finance/accounting/journal"
+            },
+            {
+              "label": "Trial Balance",
+              "route": "/finance/accounting/trial-balance"
+            },
+            {
+              "label": "Balance Sheet",
+              "route": "/finance/accounting/balance-sheet"
+            },
+            {
+              "label": "Income Statement",
+              "route": "/finance/accounting/income-statement"
+            },
+            {
+              "label": "Cash Flow Statement",
+              "route": "/finance/accounting/cash-flow"
+            },
+            {
+              "label": "Reconciliation",
+              "route": "/finance/accounting/reconciliation"
+            },
+            {
+              "label": "Closing Entries",
+              "route": "/finance/accounting/closing"
+            }
+          ]
+        },
+        {
+          "label": "Cash & Bank",
+          "children": [
+            {
+              "label": "Cash",
+              "route": "/finance/cash"
+            },
+            {
+              "label": "Bank Accounts",
+              "route": "/finance/bank"
+            },
+            {
+              "label": "Transfers",
+              "route": "/finance/transfers"
+            },
+            {
+              "label": "Bank Reconciliation",
+              "route": "/finance/bank-reconciliation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Reports",
+      "icon": "chart",
+      "children": [
+        {
+          "label": "Financial Reports",
+          "route": "/reports/financial"
+        },
+        {
+          "label": "Tax Reports",
+          "route": "/reports/tax"
+        },
+        {
+          "label": "Management Reports",
+          "route": "/reports/management"
+        },
+        {
+          "label": "Sales Reports",
+          "route": "/reports/sales"
+        },
+        {
+          "label": "Purchase Reports",
+          "route": "/reports/purchase"
+        },
+        {
+          "label": "Project Reports",
+          "route": "/reports/project"
+        },
+        {
+          "label": "Inventory Reports",
+          "route": "/reports/inventory"
+        },
+        {
+          "label": "Asset Reports",
+          "route": "/reports/assets"
+        },
+        {
+          "label": "Other Reports",
+          "route": "/reports/other"
+        }
+      ]
+    },
+    {
+      "label": "Master Data",
+      "icon": "grid",
+      "children": [
+        {
+          "label": "Company Information",
+          "route": "/master/company"
+        },
+        {
+          "label": "Chart of Accounts",
+          "route": "/master/coa"
+        },
+        {
+          "label": "Customers",
+          "route": "/master/customers"
+        },
+        {
+          "label": "Vendors",
+          "route": "/master/vendors"
+        },
+        {
+          "label": "Products & Services",
+          "route": "/master/products"
+        },
+        {
+          "label": "Assets",
+          "route": "/master/assets"
+        },
+        {
+          "label": "Departments",
+          "route": "/master/departments"
+        },
+        {
+          "label": "Employees",
+          "route": "/master/employees"
+        },
+        {
+          "label": "Warehouses",
+          "route": "/master/warehouses"
+        },
+        {
+          "label": "Pricing & Tax",
+          "route": "/master/pricing-tax"
+        },
+        {
+          "label": "Banks",
+          "route": "/master/banks"
+        },
+        {
+          "label": "Others",
+          "route": "/master/others"
+        }
+      ]
+    },
+    {
+      "label": "Documents",
+      "icon": "file",
+      "children": [
+        {
+          "label": "All Documents",
+          "route": "/documents"
+        },
+        {
+          "label": "Project Documents",
+          "route": "/documents/projects"
+        },
+        {
+          "label": "Quotation Documents",
+          "route": "/documents/quotations"
+        },
+        {
+          "label": "Sales Documents",
+          "route": "/documents/sales"
+        },
+        {
+          "label": "Purchase Documents",
+          "route": "/documents/purchases"
+        },
+        {
+          "label": "Document Templates",
+          "route": "/documents/templates"
+        }
+      ]
+    },
+    {
+      "label": "General Meeting",
+      "icon": "briefcase",
+      "children": [
+        {
+          "label": "Meeting Agenda",
+          "route": "/meeting/agenda"
+        },
+        {
+          "label": "General Meeting",
+          "route": "/meeting/general"
+        },
+        {
+          "label": "Meeting Resolutions",
+          "route": "/meeting/resolutions"
+        },
+        {
+          "label": "Meeting Documents",
+          "route": "/meeting/documents"
+        }
+      ]
+    },
+    {
+      "label": "Settings",
+      "icon": "settings",
+      "children": [
+        {
+          "label": "Users & Access Control",
+          "route": "/settings/users"
+        },
+        {
+          "label": "Approval Workflow",
+          "route": "/settings/workflow"
+        },
+        {
+          "label": "Document Numbering",
+          "route": "/settings/numbering"
+        },
+        {
+          "label": "Integrations",
+          "route": "/settings/integrations"
+        },
+        {
+          "label": "Notifications",
+          "route": "/settings/notifications"
+        },
+        {
+          "label": "Audit Trail",
+          "route": "/settings/audit"
+        },
+        {
+          "label": "Backup & Restore",
+          "route": "/settings/backup"
+        },
+        {
+          "label": "System Parameters",
+          "route": "/settings/parameters"
+        }
+      ]
+    }
+  ]
+}

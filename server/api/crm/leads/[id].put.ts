@@ -1,0 +1,1 @@
+import {updateRecord} from '~~/server/utils/jsonDatabase';export default defineEventHandler(async(event)=>({success:true,data:await updateRecord('crm/leads.json',getRouterParam(event,'id')||'',await readBody<Record<string, unknown>>(event))}))

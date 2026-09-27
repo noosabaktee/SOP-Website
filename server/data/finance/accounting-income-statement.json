@@ -1,0 +1,92 @@
+[
+  {
+    "id": "STM-001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Revenue",
+    "kind": "line",
+    "current": "Rp 18,450,000,000",
+    "previous": "Rp 18,450,000,000"
+  },
+  {
+    "id": "STM-002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Cost of Sales",
+    "kind": "line",
+    "current": "(Rp 10,220,000,000)",
+    "previous": "(Rp 10,220,000,000)"
+  },
+  {
+    "id": "STM-003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Gross Profit",
+    "kind": "total",
+    "current": "Rp 8,230,000,000",
+    "previous": "Rp 8,230,000,000"
+  },
+  {
+    "id": "STM-004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Operating Expenses",
+    "kind": "line",
+    "current": "(Rp 5,860,000,000)",
+    "previous": "(Rp 5,860,000,000)"
+  },
+  {
+    "id": "STM-005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Operating Profit",
+    "kind": "total",
+    "current": "Rp 2,370,000,000",
+    "previous": "Rp 2,370,000,000"
+  },
+  {
+    "id": "STM-006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Other Income",
+    "kind": "line",
+    "current": "Rp 185,000,000",
+    "previous": "Rp 185,000,000"
+  },
+  {
+    "id": "STM-007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Other Expenses",
+    "kind": "line",
+    "current": "(Rp 95,000,000)",
+    "previous": "(Rp 95,000,000)"
+  },
+  {
+    "id": "STM-008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Profit Before Tax",
+    "kind": "total",
+    "current": "Rp 2,460,000,000",
+    "previous": "Rp 2,460,000,000"
+  },
+  {
+    "id": "STM-009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Tax",
+    "kind": "line",
+    "current": "(Rp 541,000,000)",
+    "previous": "(Rp 541,000,000)"
+  },
+  {
+    "id": "STM-010",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "label": "Net Profit",
+    "kind": "total",
+    "current": "Rp 1,919,000,000",
+    "previous": "Rp 1,919,000,000"
+  }
+]

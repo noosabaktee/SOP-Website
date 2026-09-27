@@ -1,0 +1,156 @@
+[
+  {
+    "id": "MD-0001",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0001",
+    "warehouseName": "Warehouse Name 1",
+    "location": "Location 1",
+    "pic": "Budi Santoso",
+    "capacity": 1,
+    "status": "Draft"
+  },
+  {
+    "id": "MD-0002",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0002",
+    "warehouseName": "Warehouse Name 2",
+    "location": "Location 2",
+    "pic": "Sari Dewi",
+    "capacity": 4,
+    "status": "Pending Approval"
+  },
+  {
+    "id": "MD-0003",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0003",
+    "warehouseName": "Warehouse Name 3",
+    "location": "Location 3",
+    "pic": "Andi Wijaya",
+    "capacity": 7,
+    "status": "Approved"
+  },
+  {
+    "id": "MD-0004",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0004",
+    "warehouseName": "Warehouse Name 4",
+    "location": "Location 4",
+    "pic": "Rina Marlina",
+    "capacity": 10,
+    "status": "In Progress"
+  },
+  {
+    "id": "MD-0005",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0005",
+    "warehouseName": "Warehouse Name 5",
+    "location": "Location 5",
+    "pic": "Budi Santoso",
+    "capacity": 13,
+    "status": "Completed"
+  },
+  {
+    "id": "MD-0006",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0006",
+    "warehouseName": "Warehouse Name 6",
+    "location": "Location 6",
+    "pic": "Sari Dewi",
+    "capacity": 16,
+    "status": "Active"
+  },
+  {
+    "id": "MD-0007",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0007",
+    "warehouseName": "Warehouse Name 7",
+    "location": "Location 7",
+    "pic": "Andi Wijaya",
+    "capacity": 19,
+    "status": "Rejected"
+  },
+  {
+    "id": "MD-0008",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0008",
+    "warehouseName": "Warehouse Name 8",
+    "location": "Location 8",
+    "pic": "Rina Marlina",
+    "capacity": 22,
+    "status": "Draft"
+  },
+  {
+    "id": "MD-0009",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0009",
+    "warehouseName": "Warehouse Name 9",
+    "location": "Location 9",
+    "pic": "Budi Santoso",
+    "capacity": 1,
+    "status": "Pending Approval"
+  },
+  {
+    "id": "MD-0010",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0010",
+    "warehouseName": "Warehouse Name 10",
+    "location": "Location 10",
+    "pic": "Sari Dewi",
+    "capacity": 4,
+    "status": "Approved"
+  },
+  {
+    "id": "MD-0011",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0011",
+    "warehouseName": "Warehouse Name 11",
+    "location": "Location 11",
+    "pic": "Andi Wijaya",
+    "capacity": 7,
+    "status": "In Progress"
+  },
+  {
+    "id": "MD-0012",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0012",
+    "warehouseName": "Warehouse Name 12",
+    "location": "Location 12",
+    "pic": "Rina Marlina",
+    "capacity": 10,
+    "status": "Completed"
+  },
+  {
+    "id": "MD-0013",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0013",
+    "warehouseName": "Warehouse Name 13",
+    "location": "Location 13",
+    "pic": "Budi Santoso",
+    "capacity": 13,
+    "status": "Active"
+  },
+  {
+    "id": "MD-0014",
+    "createdAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "warehouseCode": "MD-2026-0014",
+    "warehouseName": "Warehouse Name 14",
+    "location": "Location 14",
+    "pic": "Sari Dewi",
+    "capacity": 16,
+    "status": "Rejected"
+  }
+]
