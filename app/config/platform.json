@@ -4,6 +4,22 @@
   "fullName": "Sinergi Operational Platform",
   "tagline": "Integrated Operations for a Better Tomorrow",
   "routes": {
+    "/crm/leads": {
+      "title": "Leads",
+      "description": "Capture, track, and convert potential customers into valuable opportunities.",
+      "schema": "leads",
+      "type": "grid",
+      "module": "CRM & Sales",
+      "statusFilter": "",
+      "prefix": "LEAD",
+      "kpis": [
+        "Total Leads",
+        "New Leads",
+        "In Progress",
+        "Converted",
+        "Lost"
+      ]
+    },
     "/crm/prospects": {
       "title": "Prospects",
       "description": "Manage qualified potential customers and move them toward commercial opportunities.",

@@ -141,7 +141,12 @@ defineExpose({ load, save, create, requestDelete, exportCsv, triggerImport, clea
   <section class="platform-card platform-grid-card">
     <div class="platform-card-head">
       <div><h2>{{ title || `${page.title} Data` }}</h2><p>Editable operational data with validation, copy/paste, export, and audit-ready detail.</p></div>
-      <div class="card-tools"><button class="card-tool" type="button" :disabled="dirty.size === 0" @click="save"><AppIcon name="save" />Save Changes</button></div>
+      <div class="card-tools">
+        <button class="card-tool save-changes-btn" type="button" :disabled="dirty.size === 0" @click="save">
+          <AppIcon name="save" />
+          <span>Save Changes</span>
+        </button>
+      </div>
     </div>
     <div class="grid-toolbar">
       <label class="grid-search"><AppIcon name="search" /><input v-model="search" type="search" placeholder="Search this dataset..."></label>

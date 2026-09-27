@@ -1,1 +1,1 @@
-<script setup lang="ts">definePageMeta({ layout: 'default' })</script><template><LeadsPage /></template>
+<script setup lang="ts">definePageMeta({ layout: 'platform' })</script><template><LeadsPage /></template>

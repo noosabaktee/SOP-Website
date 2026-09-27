@@ -14,14 +14,14 @@
   {
     "id": "OPP-2026-0002",
     "createdAt": "2026-09-27T00:00:00.000Z",
-    "updatedAt": "2026-09-27T00:00:00.000Z",
+    "updatedAt": "2026-09-27T12:46:48.463Z",
     "name": "Automation Upgrade",
     "customer": "PT Kalbe Morinaga Indonesia",
     "value": 330000000,
     "probability": 40,
     "closeDate": "13 Sep 2026",
     "owner": "Sari Dewi",
-    "stage": "Qualified"
+    "stage": "New"
   },
   {
     "id": "OPP-2026-0003",

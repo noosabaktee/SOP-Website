@@ -13,17 +13,18 @@
 }
 
 /* The legacy stylesheet has global table width/min-width rules. Handsontable
-   owns its table dimensions, so those rules must not stretch the row-header
-   clone into a large empty column. */
-.sop-hot-wrap .handsontable table,
-.sop-hot-wrap .handsontable table.htCore {
-  width: auto;
+   must keep width: 0 on every cloned htCore table so header and body colgroups
+   use the exact same pixel widths. */
+.sop-hot-wrap .handsontable table {
   min-width: 0;
   margin: 0;
+}
+
+.sop-hot-wrap .handsontable table.htCore {
+  width: 0;
   table-layout: fixed;
 }
 
-.sop-hot-wrap .handsontable th,
 .sop-hot-wrap .handsontable td {
   box-sizing: border-box;
   height: 38px;
@@ -36,8 +37,22 @@
 
 .sop-hot-wrap .handsontable th {
   height: 40px;
-  padding-right: 24px;
+  padding: 0;
   font-weight: 700;
+  overflow: visible;
+}
+
+.sop-hot-wrap .handsontable thead th .relative {
+  height: 100%;
+  padding: 0 28px 0 10px;
+  align-items: center;
+}
+
+.sop-hot-wrap .handsontable .colHeader {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sop-hot-wrap .handsontable .rowHeader {
@@ -50,6 +65,133 @@
 .sop-hot-wrap .handsontable td.htNumeric {
   font-variant-numeric: tabular-nums;
 }
+
+.sop-hot-wrap .handsontable .manualColumnResizer {
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  background: transparent;
+  cursor: col-resize;
+  z-index: 30;
+}
+
+.sop-hot-wrap .handsontable .manualColumnResizer:hover,
+.sop-hot-wrap .handsontable .manualColumnResizer.active {
+  background: linear-gradient(90deg, transparent 3px, #0878f9 3px, #0878f9 5px, transparent 5px);
+}
+
+.sop-hot-wrap .handsontable td.sop-hot-cell--badge,
+.sop-hot-wrap .handsontable td.sop-hot-cell--progress,
+.sop-hot-wrap .handsontable td.sop-hot-cell--currency,
+.sop-hot-wrap .handsontable td.sop-hot-cell--date {
+  padding: 0 10px;
+}
+
+.sop-hot-wrap .handsontable td.sop-hot-cell--dropdown {
+  position: relative;
+  padding-right: 10px;
+}
+
+/* Dropdown remains editable, but the visual arrow is intentionally hidden. */
+.sop-hot-wrap .handsontable .htAutocompleteArrow {
+  display: none !important;
+}
+
+.sop-hot-badge {
+  display: inline-flex;
+  max-width: 100%;
+  min-height: 24px;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sop-hot-badge__marker {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 3px currentColor;
+  opacity: .72;
+}
+
+.sop-hot-badge--success { color: #087746; background: #e2f8ec; border-color: #b8ebcf; }
+.sop-hot-badge--danger { color: #c72f3a; background: #fff0f1; border-color: #ffcbd0; }
+.sop-hot-badge--warning { color: #a76500; background: #fff5df; border-color: #f7dda7; }
+.sop-hot-badge--info { color: #0868c5; background: #e7f3ff; border-color: #c6e2ff; }
+.sop-hot-badge--purple { color: #6334bd; background: #f0eaff; border-color: #dbcdff; }
+.sop-hot-badge--neutral { color: #596980; background: #f1f4f7; border-color: #dce3ea; }
+
+.sop-hot-progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sop-hot-progress__track {
+  height: 8px;
+  min-width: 40px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e3eaf2;
+}
+
+.sop-hot-progress__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0878f9, #16b978);
+}
+
+.sop-hot-progress strong {
+  min-width: 37px;
+  color: #173367;
+  font-size: 10px;
+  text-align: right;
+}
+
+.sop-hot-money {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 5px;
+  color: #0b1f4d;
+}
+
+.sop-hot-money small { color: #7890aa; font-size: 9px; font-weight: 600; }
+.sop-hot-money strong { font-size: 10.5px; font-weight: 650; }
+
+.sop-hot-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #315181;
+  font-variant-numeric: tabular-nums;
+}
+
+.sop-hot-date::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border: 1.5px solid #7f9abc;
+  border-radius: 3px;
+  background: linear-gradient(#7f9abc 0 2px, transparent 2px);
+}
+
+.sop-hot-wrap .handsontable tbody tr:nth-child(even) td { background-color: #fbfdff!important; }
+.sop-hot-wrap .handsontable tbody tr:hover td { background-color: #f3f8ff!important; }
 
 .sop-hot-wrap .ht_master .wtHolder { overflow: auto !important; }
 .sop-hot-wrap .wtHolder::-webkit-scrollbar { width: 10px; height: 10px; }

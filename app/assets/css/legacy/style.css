@@ -220,6 +220,10 @@ body.sidebar-collapsed{--sidebar:80px}.sidebar-collapsed .sidebar-brand-name,.si
 
 /* ===== CRM LEADS PAGE ===== */
 a.nav-item{text-decoration:none}
+.platform-page .legacy-leads-chrome{display:none!important}
+.platform-page .crm-app{margin-left:0;min-height:0}
+.platform-page .leads-main{padding:0 0 24px}
+.platform-page .leads-hero{margin:0 -14px}
 .page-enter{animation:pageEnter .28s ease both}
 @keyframes pageEnter{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
 .crm-sidebar .sidebar-brand{height:96px}
