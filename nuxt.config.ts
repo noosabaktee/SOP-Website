@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: 'SOP  - Sinergi Operational Platform',
       htmlAttrs: { lang: 'id' },
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     },
