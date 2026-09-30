@@ -6,15 +6,32 @@ import { checkboxRenderer, numericRenderer, textRenderer } from 'handsontable/re
 import { HyperFormula } from 'hyperformula'
 import 'handsontable/styles/handsontable.min.css'
 import 'handsontable/styles/ht-theme-main.min.css'
-import type { DataRow, GridColumn } from '~/types/platform'
+import type { DataRow, GridColumn, GridSelectOption } from '~/types/platform'
 
 registerAllModules()
 
-const props = defineProps<{ rows: DataRow[]; columns: GridColumn[]; readOnly?: boolean }>()
-const emit = defineEmits<{ change: [changes: unknown]; select: [row: DataRow]; detail: [row: DataRow] }>()
+const props = defineProps<{
+  rows: DataRow[]
+  columns: GridColumn[]
+  readOnly?: boolean
+  customOptions?: Record<string, GridSelectOption[]>
+}>()
+const emit = defineEmits<{
+  change: [changes: unknown]
+  select: [row: DataRow]
+  detail: [row: DataRow]
+  optionCreate: [payload: { columnKey: string; columnTitle: string; value: string; color: string }]
+}>()
 const config = useRuntimeConfig()
 const hotTable = ref<InstanceType<typeof HotTable> | null>(null)
 const manualWidths = ref<Record<string, number>>({})
+const selectMenu = ref<{
+  row: number
+  columnKey: string
+  columnTitle: string
+  value: string
+  anchor: { top: number; right: number; bottom: number; left: number; width: number }
+} | null>(null)
 
 const numericTypes = new Set(['number', 'currency', 'percent', 'progress'])
 const visualCellClasses = [
@@ -63,11 +80,26 @@ const fallbackTone = (value: unknown) => {
   return tones[hash % tones.length]
 }
 
-const makeBadge = (value: unknown, status = false) => {
+const colorWithAlpha = (color: string, alpha: number) => {
+  const red = Number.parseInt(color.slice(1, 3), 16)
+  const green = Number.parseInt(color.slice(3, 5), 16)
+  const blue = Number.parseInt(color.slice(5, 7), 16)
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
+}
+
+const customColorFor = (column: GridColumn, value: unknown) => props.customOptions?.[column.key]
+  ?.find(option => option.value.toLocaleLowerCase() === String(value ?? '').trim().toLocaleLowerCase())?.color
+
+const makeBadge = (value: unknown, status = false, color?: string) => {
   const text = String(value ?? '').trim() || '—'
   const tone = semanticTone(text) || (status ? 'neutral' : fallbackTone(text))
   const badge = document.createElement('span')
   badge.className = `sop-hot-badge sop-hot-badge--${tone}`
+  if (color && /^#[0-9A-F]{6}$/i.test(color)) {
+    badge.style.color = color
+    badge.style.backgroundColor = colorWithAlpha(color, .11)
+    badge.style.borderColor = colorWithAlpha(color, .28)
+  }
 
   const marker = document.createElement('span')
   marker.className = 'sop-hot-badge__marker'
@@ -76,11 +108,11 @@ const makeBadge = (value: unknown, status = false) => {
   return badge
 }
 
-const badgeRenderer = (status = false): typeof textRenderer => (hot, cell, row, col, prop, value, cellProperties) => {
+const badgeRenderer = (column: GridColumn, status = false): typeof textRenderer => (hot, cell, row, col, prop, value, cellProperties) => {
   textRenderer(hot, cell, row, col, prop, value, cellProperties)
   resetVisualCell(cell)
   cell.classList.add('sop-hot-cell--badge', 'sop-hot-cell--dropdown')
-  cell.replaceChildren(makeBadge(value, status))
+  cell.replaceChildren(makeBadge(value, status, customColorFor(column, value)))
   cell.title = String(value ?? '')
 }
 
@@ -171,8 +203,8 @@ const detailRenderer: typeof textRenderer = (hot, cell, row, col, prop, value, c
 
 const rendererFor = (column: GridColumn) => {
   if (column.type === 'detail') return detailRenderer
-  if (column.type === 'status') return badgeRenderer(true)
-  if (column.type === 'dropdown' && /status|approval|source|industry|type|category|priority|qualification|stage|condition|method|terms|currency|tax|department|role|classification|movement/i.test(`${column.key} ${column.title}`)) return badgeRenderer(false)
+  if (column.type === 'status') return badgeRenderer(column, true)
+  if (column.type === 'dropdown' && /status|approval|source|industry|type|category|priority|qualification|stage|condition|method|terms|currency|tax|department|role|classification|movement/i.test(`${column.key} ${column.title}`)) return badgeRenderer(column, false)
   if (column.type === 'percent' || column.type === 'progress') return progressRenderer
   if (column.type === 'currency') return currencyRenderer
   if (column.type === 'date') return dateCellRenderer
@@ -193,7 +225,43 @@ const sourceFor = (column: GridColumn) => {
   if (column.type !== 'dropdown' && column.type !== 'status') return column.source
   const values = props.rows.map(row => String(row[column.key] ?? '').trim()).filter(Boolean)
   const defaults = column.type === 'status' && !column.source?.length ? defaultStatusOptions : []
-  return Array.from(new Set([...(column.source || []), ...defaults, ...values]))
+  const custom = (props.customOptions?.[column.key] || []).map(option => option.value)
+  const options = [...(column.source || []), ...defaults, ...custom, ...values]
+  return options.filter((value, index) => options.findIndex(candidate => candidate.toLocaleLowerCase() === value.toLocaleLowerCase()) === index)
+}
+
+const activeSelectColumn = computed(() => props.columns.find(column => column.key === selectMenu.value?.columnKey))
+const activeSelectOptions = computed<GridSelectOption[]>(() => {
+  const column = activeSelectColumn.value
+  if (!column) return []
+  const custom = props.customOptions?.[column.key] || []
+  return (sourceFor(column) || []).map(value => ({
+    value,
+    color: custom.find(option => option.value.toLocaleLowerCase() === value.toLocaleLowerCase())?.color,
+  }))
+})
+
+const rowAtVisualIndex = (row: number) => {
+  const hot = hotTable.value?.hotInstance
+  if (!hot || hot.isDestroyed) return props.rows[row]
+  return hot.getSourceDataAtRow(hot.toPhysicalRow(row)) as DataRow | undefined
+}
+
+const closeSelectMenu = () => { selectMenu.value = null }
+
+const selectOption = (value: string) => {
+  const menu = selectMenu.value
+  const hot = hotTable.value?.hotInstance
+  if (!menu || !hot || hot.isDestroyed) return closeSelectMenu()
+  hot.setDataAtRowProp(menu.row, menu.columnKey, value, 'select-menu')
+  closeSelectMenu()
+}
+
+const createOption = (payload: { value: string; color: string }) => {
+  const menu = selectMenu.value
+  if (!menu) return
+  emit('optionCreate', { columnKey: menu.columnKey, columnTitle: menu.columnTitle, ...payload })
+  selectOption(payload.value)
 }
 
 const validatorFor = (column: GridColumn) => (value: unknown, callback: (valid: boolean) => void) => {
@@ -211,6 +279,7 @@ const validatorFor = (column: GridColumn) => (value: unknown, callback: (valid: 
 const hotColumns = computed(() => props.columns.map(column => ({
   data: column.key,
   type: toHotType(column),
+  editor: column.type === 'dropdown' || column.type === 'status' ? false : undefined,
   readOnly: props.readOnly || column.editable === false || Boolean(column.formula),
   width: manualWidths.value[column.key] ?? column.width,
   source: sourceFor(column),
@@ -255,7 +324,13 @@ const settings = computed<GridSettings>(() => ({
   licenseKey: String(config.public.handsontableLicenseKey),
   formulas: { engine: HyperFormula, sheetName: 'SOP' },
   afterChange: (changes, source) => {
-    if (changes && source !== 'loadData') emit('change', changes)
+    const hot = hotTable.value?.hotInstance
+    if (changes && source !== 'loadData') {
+      const normalized = hot
+        ? changes.map(([row, property, oldValue, newValue]) => [hot.toPhysicalRow(Number(row)), property, oldValue, newValue])
+        : changes
+      emit('change', normalized)
+    }
   },
   afterColumnResize: (newSize, column) => {
     const hot = hotTable.value?.hotInstance
@@ -265,29 +340,34 @@ const settings = computed<GridSettings>(() => ({
     manualWidths.value = { ...manualWidths.value, [key]: newSize }
   },
   afterSelectionEnd: (row) => {
-    const item = props.rows[row]
+    const item = rowAtVisualIndex(row)
     if (item) emit('select', item)
   },
   afterOnCellMouseDown: (event, coords) => {
     if (coords.row < 0 || coords.col < 0) return
-    const column = props.columns[coords.col]
+    const hot = hotTable.value?.hotInstance
+    const property = hot?.colToProp(coords.col)
+    const column = props.columns.find(item => item.key === property) || props.columns[coords.col]
     if (column?.type === 'detail') {
       const target = event.target as HTMLElement | null
       const button = target?.closest('.sop-hot-detail-btn')
-      const item = props.rows[coords.row]
+      const item = rowAtVisualIndex(coords.row)
       if (button && item) emit('detail', item)
       return
     }
     if (!column || (column.type !== 'dropdown' && column.type !== 'status')) return
     if (props.readOnly || column.editable === false || column.formula) return
-
-    window.requestAnimationFrame(() => {
-      const hot = hotTable.value?.hotInstance
-      if (!hot || hot.isDestroyed) return
-      hot.selectCell(coords.row, coords.col)
-      const editor = hot.getActiveEditor()
-      if (editor && !editor.isOpened()) editor.beginEditing(undefined, event)
-    })
+    const cell = (event.target as HTMLElement | null)?.closest('td')
+    if (!hot || !cell) return
+    const rect = cell.getBoundingClientRect()
+    hot.selectCell(coords.row, coords.col)
+    selectMenu.value = {
+      row: coords.row,
+      columnKey: column.key,
+      columnTitle: column.title,
+      value: String(rowAtVisualIndex(coords.row)?.[column.key] ?? ''),
+      anchor: { top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left, width: rect.width },
+    }
   },
 }))
 </script>
@@ -295,5 +375,16 @@ const settings = computed<GridSettings>(() => ({
 <template>
   <div class="sop-hot-wrap ht-theme-main">
     <HotTable ref="hotTable" :settings="settings" />
+    <GridSelectMenu
+      :open="Boolean(selectMenu)"
+      :title="selectMenu?.columnTitle || ''"
+      :options="activeSelectOptions"
+      :current-value="selectMenu?.value"
+      :anchor="selectMenu?.anchor"
+      :allow-create="activeSelectColumn?.allowCustomOptions !== false"
+      @close="closeSelectMenu"
+      @select="selectOption"
+      @create="createOption"
+    />
   </div>
 </template>

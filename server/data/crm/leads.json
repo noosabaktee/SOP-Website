@@ -1,5 +1,18 @@
 [
   {
+    "name": "",
+    "company": "",
+    "email": "",
+    "phone": "",
+    "source": "",
+    "status": "",
+    "potentialValue": 0,
+    "assignedTo": "",
+    "id": "bd96675e-d507-4d42-b998-0dde7ba7fee5",
+    "createdAt": "2026-09-30T06:14:36.402Z",
+    "updatedAt": "2026-09-30T06:14:36.402Z"
+  },
+  {
     "id": "LEAD-0001",
     "name": "Andi Pratama",
     "company": "PT ABC Kogen Dairy",
@@ -105,18 +118,6 @@
     "status": "New",
     "potentialValue": 550000000,
     "assignedTo": "Budi Santoso",
-    "createdDate": "16 Sep 2026"
-  },
-  {
-    "id": "LEAD-0010",
-    "name": "Siti Rahmawati",
-    "company": "PT Dankos Farma",
-    "email": "lead10@example.co.id",
-    "phone": "+62 812 3456 7899",
-    "source": "Referral",
-    "status": "In Progress",
-    "potentialValue": 587500000,
-    "assignedTo": "Sari Dewi",
     "createdDate": "16 Sep 2026"
   }
 ]

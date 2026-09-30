@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { gridSchemas } from '~/config/platform'
 import type { DataRow, GridColumn, PageConfig } from '~/types/platform'
-import { downloadCsv, parseCsv } from '~/utils/csv'
+import { downloadCsv } from '~/utils/csv'
+import { parseExcelFile } from '~/utils/excel'
 import { recalculateRow } from '~/utils/gridFormula'
 
 const props = withDefaults(defineProps<{
@@ -15,34 +16,61 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{ loaded: [DataRow[]] }>()
 const { showToast } = useToast()
 const { rows, pending, error, fetchRows, createRow, updateRow, deleteRow } = useResourceGrid(props.routePath)
+const { optionsByColumn, fetchOptions, createOption } = useGridOptions(props.routePath)
 const search = ref('')
-const status = ref('')
+const filterValue = ref('')
 const selected = ref<DataRow | null>(null)
 const detailRow = ref<DataRow | null>(null)
 const dirty = ref(new Set<string>())
 const confirmDelete = ref(false)
 const duplicating = ref(false)
 const fileInput = ref<HTMLInputElement | null>(null)
+const gridRevision = ref(0)
+const creating = ref(false)
+const importing = ref(false)
 
 const effectiveColumns = computed(() => props.columns || gridSchemas[props.page.schema] || gridSchemas.generic || [])
 const displayColumns = computed<GridColumn[]>(() => [
   ...effectiveColumns.value,
   { key: '__detail', title: 'Detail', type: 'detail', editable: false, width: 74 },
 ])
+const filterColumn = computed(() => {
+  const selectColumns = effectiveColumns.value.filter(column => column.type === 'status' || column.type === 'dropdown')
+  return selectColumns.find(column => column.key === 'status')
+    || selectColumns.find(column => column.key === 'approval')
+    || selectColumns.find(column => /status|stage|condition|qualification|priority/i.test(`${column.key} ${column.title}`))
+    || selectColumns[0]
+})
+const filterOptions = computed(() => {
+  const column = filterColumn.value
+  if (!column) return []
+  const values = rows.value.map(row => String(row[column.key] ?? '').trim()).filter(Boolean)
+  return values.filter((value, index) => values.findIndex(candidate => candidate.toLocaleLowerCase() === value.toLocaleLowerCase()) === index)
+})
 const filtered = computed(() => {
   const query = search.value.toLowerCase().trim()
-  const quickStatus = status.value.toLowerCase().trim()
+  const quickFilter = filterValue.value.toLowerCase().trim()
+  const column = filterColumn.value
   return rows.value.filter(row => {
     const matchesSearch = !query || JSON.stringify(row).toLowerCase().includes(query)
-    const currentStatus = String(row.status || row.approval || '').toLowerCase()
-    const matchesStatus = !quickStatus || currentStatus.includes(quickStatus)
-    return matchesSearch && matchesStatus
+    const currentValue = column ? String(row[column.key] ?? '').toLowerCase().trim() : ''
+    const matchesFilter = !quickFilter || currentValue === quickFilter
+    return matchesSearch && matchesFilter
   })
 })
 
+const refreshGrid = async () => {
+  gridRevision.value++
+  await nextTick()
+  emit('loaded', [...rows.value])
+}
+
 const load = async () => {
-  const result = await fetchRows()
-  emit('loaded', result.data)
+  await Promise.all([
+    fetchRows(),
+    props.readOnly ? Promise.resolve([]) : fetchOptions().catch(() => []),
+  ])
+  await refreshGrid()
 }
 
 onMounted(load)
@@ -61,15 +89,29 @@ const onChange = (changes: unknown) => {
   dirty.value = new Set(dirty.value)
 }
 
+const onOptionCreate = async (payload: { columnKey: string; columnTitle: string; value: string; color: string }) => {
+  try {
+    await createOption(payload.columnKey, payload.value, payload.color)
+    showToast(`Pilihan “${payload.value}” ditambahkan ke ${payload.columnTitle}.`)
+  } catch (optionError) {
+    showToast(optionError instanceof Error ? optionError.message : 'Pilihan baru belum dapat disimpan.')
+  }
+}
+
 const save = async () => {
   const changed = rows.value.filter(row => row.id && dirty.value.has(String(row.id)))
-  for (const row of changed) await updateRow(String(row.id), row)
+  for (const row of changed) {
+    const result = await updateRow(String(row.id), row) as { data?: DataRow }
+    if (result?.data) Object.assign(row, result.data)
+  }
   dirty.value.clear()
   dirty.value = new Set()
   showToast(changed.length ? `${changed.length} record(s) saved.` : 'No unsaved changes.')
 }
 
 const create = async () => {
+  if (creating.value) return
+  creating.value = true
   const draft: DataRow = {}
   for (const column of effectiveColumns.value) {
     if (column.formula || column.editable === false) continue
@@ -78,9 +120,29 @@ const create = async () => {
     else draft[column.key] = ''
   }
   recalculateRow(draft, effectiveColumns.value)
-  const result = await createRow(draft) as { data?: DataRow }
-  if (result?.data) rows.value.unshift(result.data)
-  showToast('Record created. Edit the new row, then save changes.')
+  const clientToken = `create-${Date.now()}-${Math.random().toString(36).slice(2)}`
+  draft.__clientToken = clientToken
+  search.value = ''
+  filterValue.value = ''
+  rows.value.unshift(draft)
+  await refreshGrid()
+
+  try {
+    const payload = { ...draft }
+    delete payload.__clientToken
+    const result = await createRow(payload) as { data?: DataRow }
+    if (!result?.data) throw new Error('Server tidak mengembalikan data baru.')
+    const index = rows.value.findIndex(row => row.__clientToken === clientToken)
+    if (index >= 0) rows.value[index] = { ...draft, ...result.data, __clientToken: undefined }
+    await refreshGrid()
+    showToast('Record langsung ditambahkan. Lengkapi data lalu simpan perubahan.')
+  } catch (createError) {
+    rows.value = rows.value.filter(row => row.__clientToken !== clientToken)
+    await refreshGrid()
+    showToast(createError instanceof Error ? createError.message : 'Record baru gagal dibuat.')
+  } finally {
+    creating.value = false
+  }
 }
 
 const requestDelete = () => {
@@ -90,12 +152,26 @@ const requestDelete = () => {
 
 const confirmDeleteSelected = async () => {
   if (!selected.value?.id) return
-  await deleteRow(String(selected.value.id))
-  rows.value = rows.value.filter(row => String(row.id) !== String(selected.value?.id))
-  if (String(detailRow.value?.id) === String(selected.value?.id)) detailRow.value = null
+  const target = selected.value
+  const id = String(target.id)
+  const index = rows.value.findIndex(row => String(row.id) === id)
+  if (index < 0) return
+  rows.value.splice(index, 1)
+  if (String(detailRow.value?.id) === id) detailRow.value = null
   selected.value = null
   confirmDelete.value = false
-  showToast('Record deleted.')
+  await refreshGrid()
+
+  try {
+    await deleteRow(id)
+    dirty.value.delete(id)
+    dirty.value = new Set(dirty.value)
+    showToast('Record langsung dihapus.')
+  } catch (deleteError) {
+    rows.value.splice(index, 0, target)
+    await refreshGrid()
+    showToast(deleteError instanceof Error ? deleteError.message : 'Penghapusan gagal. Data dikembalikan.')
+  }
 }
 
 const exportCsv = () => {
@@ -108,24 +184,58 @@ const onImportFile = async (event: Event) => {
   const input = event.target as HTMLInputElement
   const file = input.files?.[0]
   if (!file) return
-  if (!file.name.toLowerCase().endsWith('.csv')) {
-    showToast('CSV import is supported in this migration build.')
+  if (!file.name.toLowerCase().endsWith('.xlsx')) {
+    showToast('Gunakan file Excel dengan format .xlsx.')
     input.value = ''
     return
   }
-  const imported = parseCsv(await file.text(), effectiveColumns.value)
-  let count = 0
-  for (const row of imported) {
-    recalculateRow(row, effectiveColumns.value)
-    await createRow(row)
-    count++
+  if (importing.value) return
+  importing.value = true
+  try {
+    const imported = await parseExcelFile(file, effectiveColumns.value)
+    const batchToken = `import-${Date.now()}-`
+    imported.forEach((row, index) => {
+      recalculateRow(row, effectiveColumns.value)
+      row.__clientToken = `${batchToken}${index}`
+    })
+    search.value = ''
+    filterValue.value = ''
+    rows.value.unshift(...imported)
+    await refreshGrid()
+
+    let importedCount = 0
+    let failedCount = 0
+    for (const row of imported) {
+      const token = String(row.__clientToken)
+      try {
+        const payload = { ...row }
+        delete payload.__clientToken
+        const result = await createRow(payload) as { data?: DataRow }
+        if (!result?.data) throw new Error('Import response is empty')
+        const index = rows.value.findIndex(item => item.__clientToken === token)
+        if (index >= 0) rows.value[index] = result.data
+        importedCount++
+      } catch {
+        rows.value = rows.value.filter(item => item.__clientToken !== token)
+        failedCount++
+      }
+    }
+    await refreshGrid()
+    showToast(failedCount
+      ? `${importedCount} baris berhasil, ${failedCount} baris gagal diimport.`
+      : `${importedCount} baris Excel berhasil diimport.`)
+  } catch (importError) {
+    showToast(importError instanceof Error ? importError.message : 'File Excel gagal diimport.')
+  } finally {
+    importing.value = false
+    input.value = ''
   }
-  input.value = ''
-  await load()
-  showToast(`${count} row(s) imported.`)
 }
 
-const clearFilters = () => { search.value = ''; status.value = '' }
+const clearFilters = () => { search.value = ''; filterValue.value = '' }
+watch([search, filterValue], () => {
+  if (selected.value && !filtered.value.includes(selected.value)) selected.value = null
+})
 const print = () => { if (import.meta.client) window.print() }
 const requestDetailDelete = () => {
   if (!detailRow.value) return
@@ -166,6 +276,7 @@ const duplicateDetail = async () => {
     const result = await createRow(duplicate) as { data?: DataRow }
     if (!result?.data) throw new Error('The duplicated record was not returned by the server.')
     rows.value.unshift(result.data)
+    await refreshGrid()
     selected.value = result.data
     detailRow.value = result.data
     showToast('Record duplicated successfully.')
@@ -205,16 +316,30 @@ defineExpose({ load, save, create, requestDelete, exportCsv, triggerImport, clea
     </div>
     <div class="grid-toolbar">
       <label class="grid-search"><AppIcon name="search" /><input v-model="search" type="search" placeholder="Search this dataset..."></label>
-      <select v-model="status" class="grid-filter"><option value="">All Status</option><option>Active</option><option>Approved</option><option>Pending</option><option>Completed</option><option>Draft</option></select>
+      <select v-if="filterColumn" v-model="filterValue" class="grid-filter" :aria-label="`Filter ${filterColumn.title}`">
+        <option value="">All {{ filterColumn.title }}</option>
+        <option v-for="option in filterOptions" :key="option" :value="option">{{ option }}</option>
+      </select>
       <button class="card-tool" type="button" @click="clearFilters">Clear Filters</button>
       <button v-if="!readOnly" class="card-tool" type="button" @click="requestDelete">Delete Selected</button>
-      <input ref="fileInput" type="file" accept=".csv" hidden @change="onImportFile">
+      <input ref="fileInput" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden @change="onImportFile">
     </div>
     <div class="grid-shell">
       <div v-if="pending" class="platform-grid-loading">Loading data…</div>
       <div v-else-if="error" class="error-state"><div><AppIcon name="warning" /><h3>Unable to load data</h3><p>{{ error }}</p><button class="pa-btn primary" type="button" @click="load">Retry</button></div></div>
       <div v-else-if="filtered.length === 0" class="empty-state" style="display:grid"><div><AppIcon name="search" /><h3>No records found</h3><p>Try changing your filters or create a new record.</p><div class="state-actions"><button class="pa-btn" type="button" @click="clearFilters">Clear Filters</button><button v-if="!readOnly" class="pa-btn primary" type="button" @click="create">Create</button></div></div></div>
-      <AppDataGrid v-else :rows="filtered" :columns="displayColumns" :read-only="readOnly" @change="onChange" @select="selected = $event" @detail="detailRow = $event" />
+      <AppDataGrid
+        :key="gridRevision"
+        v-else
+        :rows="filtered"
+        :columns="displayColumns"
+        :read-only="readOnly"
+        :custom-options="optionsByColumn"
+        @change="onChange"
+        @select="selected = $event"
+        @detail="detailRow = $event"
+        @option-create="onOptionCreate"
+      />
     </div>
     <footer class="grid-footer"><span>Showing {{ filtered.length }} of {{ rows.length }} records</span><div class="page-buttons"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>›</button></div></footer>
   </section>
