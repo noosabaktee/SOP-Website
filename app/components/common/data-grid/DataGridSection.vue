@@ -21,6 +21,7 @@ const selected = ref<DataRow | null>(null)
 const detailRow = ref<DataRow | null>(null)
 const dirty = ref(new Set<string>())
 const confirmDelete = ref(false)
+const duplicating = ref(false)
 const fileInput = ref<HTMLInputElement | null>(null)
 
 const effectiveColumns = computed(() => props.columns || gridSchemas[props.page.schema] || gridSchemas.generic || [])
@@ -132,6 +133,49 @@ const requestDetailDelete = () => {
   requestDelete()
 }
 
+const nextIdentifier = (key: string, currentValue: unknown) => {
+  const current = String(currentValue || '')
+  const match = current.match(/^([A-Za-z]+(?:[-/]\d+)*[-/]?)(\d+)$/)
+  if (!match) return undefined
+  const [, prefix, number] = match
+  const highest = rows.value.reduce((max, row) => {
+    const candidate = String(row[key] || '').match(/^([A-Za-z]+(?:[-/]\d+)*[-/]?)(\d+)$/)
+    return candidate && candidate[1] === prefix ? Math.max(max, Number(candidate[2])) : max
+  }, Number(number))
+  return `${prefix}${String(highest + 1).padStart(number.length, '0')}`
+}
+
+const duplicateDetail = async () => {
+  if (!detailRow.value || duplicating.value) return
+  duplicating.value = true
+  try {
+    const source = detailRow.value
+    const duplicate: DataRow = { ...source }
+    const generatedId = nextIdentifier('id', source.id)
+    if (generatedId) duplicate.id = generatedId
+    else delete duplicate.id
+    delete duplicate.createdAt
+    delete duplicate.updatedAt
+
+    const primaryKey = effectiveColumns.value[0]?.key
+    if (primaryKey && primaryKey !== 'id' && /(?:id|code|no|number)$/i.test(primaryKey)) {
+      const generatedPrimary = nextIdentifier(primaryKey, source[primaryKey])
+      if (generatedPrimary) duplicate[primaryKey] = generatedPrimary
+    }
+
+    const result = await createRow(duplicate) as { data?: DataRow }
+    if (!result?.data) throw new Error('The duplicated record was not returned by the server.')
+    rows.value.unshift(result.data)
+    selected.value = result.data
+    detailRow.value = result.data
+    showToast('Record duplicated successfully.')
+  } catch (duplicateError) {
+    showToast(duplicateError instanceof Error ? duplicateError.message : 'Unable to duplicate record.')
+  } finally {
+    duplicating.value = false
+  }
+}
+
 const onSaveShortcut = () => save()
 onMounted(() => window.addEventListener('sop:save', onSaveShortcut))
 onBeforeUnmount(() => { if (import.meta.client) window.removeEventListener('sop:save', onSaveShortcut) })
@@ -174,6 +218,6 @@ defineExpose({ load, save, create, requestDelete, exportCsv, triggerImport, clea
     </div>
     <footer class="grid-footer"><span>Showing {{ filtered.length }} of {{ rows.length }} records</span><div class="page-buttons"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>›</button></div></footer>
   </section>
-  <RecordDrawer :row="detailRow" :columns="effectiveColumns" :module="page.module" @close="detailRow = null" @delete="requestDetailDelete" />
+  <RecordDrawer :row="detailRow" :columns="effectiveColumns" :module="page.module" :duplicating="duplicating" @close="detailRow = null" @duplicate="duplicateDetail" @delete="requestDetailDelete" />
   <ConfirmDialog :open="confirmDelete" title="Delete selected record?" message="This action removes the selected record from the JSON data layer." @cancel="confirmDelete = false" @confirm="confirmDeleteSelected" />
 </template>
