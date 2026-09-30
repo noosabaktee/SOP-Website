@@ -1,13 +1,81 @@
 <script setup lang="ts">
-const router=useRouter(); const {showToast}=useToast();
-onMounted(()=>{
- document.querySelectorAll<HTMLAnchorElement>('a[href^="/"]').forEach(a=>a.addEventListener('click',(e)=>{e.preventDefault();router.push(a.getAttribute('href')||'/')}))
- const collapse=document.querySelector('#collapseBtn'); collapse?.addEventListener('click',()=>document.body.classList.toggle('sidebar-collapsed'))
- const sidebar=document.querySelector('#sidebar'),overlay=document.querySelector('#sidebarOverlay');document.querySelector('#mobileMenu')?.addEventListener('click',()=>{sidebar?.classList.add('mobile-open');overlay?.classList.add('show')});overlay?.addEventListener('click',()=>{sidebar?.classList.remove('mobile-open');overlay?.classList.remove('show')})
- const searches=[document.querySelector<HTMLInputElement>('#globalSearch'),document.querySelector<HTMLInputElement>('#mobileSearch')].filter(Boolean) as HTMLInputElement[];const run=(value:string)=>document.querySelectorAll<HTMLElement>('.searchable').forEach(el=>el.classList.toggle('hidden-by-search',!!value&&!((el.dataset.search||el.textContent||'').toLowerCase().includes(value.toLowerCase()))));searches.forEach(input=>input.addEventListener('input',()=>{searches.forEach(other=>{if(other!==input)other.value=input.value});run(input.value)}));document.querySelector('#learnMore')?.addEventListener('click',()=>showToast('SOP integrates people, process, and technology.'))
+const router = useRouter()
+const { toastMessage, toastVisible, showToast } = useToast()
+
+const mobileOpen = ref(false)
+const profileOpen = ref(false)
+const search = ref('')
+const globalSearch = ref<HTMLInputElement | null>(null)
+const completedTasks = ref<number[]>([])
+const scheduleMonth = ref(new Date(2026, 8, 1))
+
+const monthLabel = computed(() => scheduleMonth.value.toLocaleDateString('en-US', {
+  month: 'long',
+  year: 'numeric',
+}))
+const hasSchedule = computed(() => scheduleMonth.value.getFullYear() === 2026 && scheduleMonth.value.getMonth() === 8)
+
+const navigate = (path: string) => {
+  mobileOpen.value = false
+  profileOpen.value = false
+  return router.push(path)
+}
+
+const toggleSidebar = () => {
+  if (import.meta.client) document.body.classList.toggle('sidebar-collapsed')
+}
+
+const updateSearch = async () => {
+  if (!import.meta.client) return
+  const query = search.value.trim().toLowerCase()
+  document.querySelectorAll<HTMLElement>('.searchable').forEach((element) => {
+    const haystack = (element.dataset.search || element.textContent || '').toLowerCase()
+    element.classList.toggle('hidden-by-search', Boolean(query) && !haystack.includes(query))
+  })
+}
+
+const onKeydown = (event: KeyboardEvent) => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    event.preventDefault()
+    globalSearch.value?.focus()
+    globalSearch.value?.select()
+  }
+  if (event.key === 'Escape') {
+    profileOpen.value = false
+    mobileOpen.value = false
+    if (search.value) search.value = ''
+  }
+}
+
+const changeMonth = (offset: number) => {
+  scheduleMonth.value = new Date(
+    scheduleMonth.value.getFullYear(),
+    scheduleMonth.value.getMonth() + offset,
+    1,
+  )
+}
+
+const toggleTask = (index: number, checked: boolean) => {
+  completedTasks.value = checked
+    ? [...new Set([...completedTasks.value, index])]
+    : completedTasks.value.filter(item => item !== index)
+  showToast(checked ? 'Task marked as completed.' : 'Task reopened.')
+}
+
+const openQuickActions = () => {
+  document.querySelector('.quick-actions')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
+
+watch(search, updateSearch)
+onMounted(() => document.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => {
+  if (!import.meta.client) return
+  document.removeEventListener('keydown', onKeydown)
+  document.body.classList.remove('sidebar-collapsed')
 })
-useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
-</script><template><div><svg aria-hidden="true" class="svg-sprite">
+
+useHead({ title: 'SOP — Dashboard', bodyAttrs: { class: 'dashboard-page' } })
+</script><template><div @click="profileOpen = false"><svg aria-hidden="true" class="svg-sprite">
 <symbol id="i-home" viewbox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10.5V21h14V10.5"></path><path d="M9 21v-6h6v6"></path></symbol>
 <symbol id="i-users" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
 <symbol id="i-file" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h6"></path></symbol>
@@ -31,38 +99,38 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 <symbol id="i-logout" viewbox="0 0 24 24"><path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path><path d="M14 3h6a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-6"></path></symbol>
 <symbol id="i-building" viewbox="0 0 24 24"><path d="M3 21h18M5 21V4h10v17M15 9h4v12"></path><path d="M8 8h1M11 8h1M8 12h1M11 12h1M8 16h1M11 16h1"></path></symbol>
 </svg>
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-<aside class="sidebar" id="sidebar">
+<div class="sidebar-overlay" :class="{ show: mobileOpen }" @click="mobileOpen = false"></div>
+<aside class="sidebar" :class="{ 'mobile-open': mobileOpen }">
 <div class="sidebar-brand">
 <div class="sop-logo side-logo"><span>S</span><i></i><span>P</span></div>
 <div class="sidebar-brand-name">Sinergi Operational Platform</div>
-<button aria-label="Collapse sidebar" class="collapse-btn" id="collapseBtn" type="button">‹</button>
+<button aria-label="Collapse sidebar" class="collapse-btn" type="button" @click="toggleSidebar">‹</button>
 </div>
-<nav class="sidebar-nav"><a class="nav-item active" data-label="Dashboard" href="/dashboard">
+<nav class="sidebar-nav"><a class="nav-item active" data-label="Dashboard" href="/dashboard" @click.prevent="navigate('/dashboard')">
 <svg><use href="#i-home"></use></svg><span>Dashboard</span>
-</a><a class="nav-item" data-label="CRM &amp; Sales" href="/crm/leads">
+</a><a class="nav-item" data-label="CRM &amp; Sales" href="/crm/leads" @click.prevent="navigate('/crm/leads')">
 <svg><use href="#i-users"></use></svg><span>CRM &amp; Sales</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</a><button class="nav-item" data-label="Quotation" type="button">
+</a><button class="nav-item" data-label="Quotation" type="button" @click="navigate('/quotation')">
 <svg><use href="#i-file"></use></svg><span>Quotation</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Sales" type="button">
+</button><button class="nav-item" data-label="Sales" type="button" @click="navigate('/sales/orders')">
 <svg><use href="#i-cart"></use></svg><span>Sales</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Project" type="button">
+</button><button class="nav-item" data-label="Project" type="button" @click="navigate('/project')">
 <svg><use href="#i-briefcase"></use></svg><span>Project</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Procurement" type="button">
+</button><button class="nav-item" data-label="Procurement" type="button" @click="navigate('/purchase/request')">
 <svg><use href="#i-file"></use></svg><span>Procurement</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Inventory" type="button">
+</button><button class="nav-item" data-label="Inventory" type="button" @click="navigate('/inventory/stock')">
 <svg><use href="#i-box"></use></svg><span>Inventory</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Finance &amp; Accounting" type="button">
+</button><button class="nav-item" data-label="Finance &amp; Accounting" type="button" @click="navigate('/finance/transactions/sales')">
 <svg><use href="#i-chart"></use></svg><span>Finance &amp; Accounting</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Reports" type="button">
+</button><button class="nav-item" data-label="Reports" type="button" @click="navigate('/reports/management')">
 <svg><use href="#i-chart"></use></svg><span>Reports</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Master Data" type="button">
+</button><button class="nav-item" data-label="Master Data" type="button" @click="navigate('/master/company')">
 <svg><use href="#i-grid"></use></svg><span>Master Data</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Documents" type="button">
+</button><button class="nav-item" data-label="Documents" type="button" @click="navigate('/documents')">
 <svg><use href="#i-file"></use></svg><span>Documents</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="GMS" type="button">
+</button><button class="nav-item" data-label="GMS" type="button" @click="navigate('/meeting/agenda')">
 <svg><use href="#i-briefcase"></use></svg><span>GMS</span><svg class="nav-chevron"><use href="#i-down"></use></svg>
-</button><button class="nav-item" data-label="Settings" type="button">
+</button><button class="nav-item" data-label="Settings" type="button" @click="navigate('/settings/users')">
 <svg><use href="#i-settings"></use></svg><span>Settings</span>
 </button></nav>
 <div class="sidebar-bottom">
@@ -73,35 +141,35 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 </aside>
 <div class="app">
 <header class="topnav">
-<button aria-label="Open menu" class="mobile-menu" id="mobileMenu" type="button"><svg><use href="#i-menu"></use></svg></button>
+<button aria-label="Open menu" class="mobile-menu" type="button" @click.stop="mobileOpen = true"><svg><use href="#i-menu"></use></svg></button>
 <div class="top-mobile-logo"><div class="sop-logo tiny"><span>S</span><i></i><span>P</span></div></div>
 <label class="searchbox" for="globalSearch">
 <svg><use href="#i-search"></use></svg>
-<input id="globalSearch" placeholder="Search projects, quotations, customers, or anything..." type="search"/>
+<input id="globalSearch" ref="globalSearch" v-model="search" placeholder="Search projects, quotations, customers, or anything..." type="search"/>
 <kbd>Ctrl + K</kbd>
 </label>
 <div class="top-actions">
-<button aria-label="Notifications" class="icon-button notification" type="button"><svg><use href="#i-bell"></use></svg><span>3</span></button>
-<button aria-label="Applications" class="icon-button app-grid" type="button"><svg><use href="#i-grid"></use></svg></button>
+<button aria-label="Notifications" class="icon-button notification" type="button" @click="navigate('/settings/notifications')"><svg><use href="#i-bell"></use></svg><span>3</span></button>
+<button aria-label="Quick actions" class="icon-button app-grid" type="button" @click="openQuickActions"><svg><use href="#i-grid"></use></svg></button>
 <span class="top-separator"></span>
-<button aria-expanded="false" class="profile-button" id="profileButton" type="button">
+<button :aria-expanded="profileOpen" class="profile-button" type="button" @click.stop="profileOpen = !profileOpen">
 <img alt="Irpan Hidayat Pamil" src="/assets/avatar.jpg"/>
 <span><b>Irpan Hidayat Pamil</b><small>CEO</small></span>
 <svg><use href="#i-down"></use></svg>
 </button>
-<div class="profile-menu" id="profileMenu">
-<button type="button"><svg><use href="#i-user"></use></svg>Profile</button>
-<button type="button"><svg><use href="#i-settings"></use></svg>My Settings</button>
-<button type="button"><svg><use href="#i-bell"></use></svg>Notifications</button>
-<button type="button"><svg><use href="#i-help"></use></svg>Help Center</button>
+<div class="profile-menu" :class="{ show: profileOpen }" @click.stop>
+<button type="button" @click="navigate('/settings/users')"><svg><use href="#i-user"></use></svg>Profile</button>
+<button type="button" @click="navigate('/settings/parameters')"><svg><use href="#i-settings"></use></svg>My Settings</button>
+<button type="button" @click="navigate('/settings/notifications')"><svg><use href="#i-bell"></use></svg>Notifications</button>
+<button type="button" @click="showToast('Please contact the SOP administrator for assistance.'); profileOpen = false"><svg><use href="#i-help"></use></svg>Help Center</button>
 <hr/>
-<button class="signout" id="signOut" type="button"><svg><use href="#i-logout"></use></svg>Sign Out</button>
+<button class="signout" type="button" @click="navigate('/')"><svg><use href="#i-logout"></use></svg>Sign Out</button>
 </div>
 </div>
 </header>
 <div class="mobile-search-row">
 <label class="searchbox mobile-search" for="mobileSearch">
-<svg><use href="#i-search"></use></svg><input id="mobileSearch" placeholder="Search projects, quotations, customers..." type="search"/>
+<svg><use href="#i-search"></use></svg><input id="mobileSearch" v-model="search" placeholder="Search projects, quotations, customers..." type="search"/>
 </label>
 </div>
 <main class="dashboard-main">
@@ -117,7 +185,7 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 </section>
 <section class="dashboard-grid top-grid">
 <article class="dash-card project-progress reveal">
-<div class="card-head"><h2>Project Progress</h2><button type="button">View All →</button></div>
+<div class="card-head"><h2>Project Progress</h2><button type="button" @click="navigate('/project/dashboard')">View All →</button></div>
 <div class="chart-legend"><span><i class="green"></i>On Track</span><span><i class="orange"></i>At Risk</span><span><i class="red"></i>Delayed</span><span><i class="blue"></i>Completed</span></div>
 <div class="bar-chart">
 <div class="y-axis"><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span></div>
@@ -161,7 +229,7 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 </div>
 </article>
 <article class="dash-card task-status reveal">
-<div class="card-head"><h2>Task Status</h2><button type="button">View All →</button></div>
+<div class="card-head"><h2>Task Status</h2><button type="button" @click="navigate('/project/tasks')">View All →</button></div>
 <div class="task-status-body">
 <div class="donut"><div><strong>120</strong><span>Tasks</span></div></div>
 <ul class="status-list">
@@ -173,29 +241,30 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 </div>
 </article>
 <article class="dash-card my-tasks reveal">
-<div class="card-head"><h2>My Tasks</h2><button type="button">View All →</button></div>
+<div class="card-head"><h2>My Tasks</h2><button type="button" @click="navigate('/project/tasks')">View All →</button></div>
 <div class="task-list">
-<label class="task-row searchable" data-search="Finalize engineering design PRJ-001 EMS ABC Kogen Dairy"><input type="checkbox"/><span class="task-check"></span><span class="task-copy"><b>Finalize engineering design</b><small>PRJ-001 - EMS ABC Kogen Dairy</small></span><em class="today">Today</em></label>
-<label class="task-row searchable" data-search="Prepare vendor comparison PRC-002"><input type="checkbox"/><span class="task-check"></span><span class="task-copy"><b>Prepare vendor comparison</b><small>PRC-002</small></span><em>17 Sep 2026</em></label>
-<label class="task-row searchable" data-search="Review quotation customer QT-2026-014"><input type="checkbox"/><span class="task-check"></span><span class="task-copy"><b>Review quotation to customer</b><small>QT-2026-014</small></span><em>18 Sep 2026</em></label>
-<label class="task-row searchable" data-search="Project progress meeting PRJ-003"><input type="checkbox"/><span class="task-check"></span><span class="task-copy"><b>Project progress meeting</b><small>PRJ-003</small></span><em>18 Sep 2026</em></label>
-<label class="task-row searchable" data-search="Update monthly report Internal"><input type="checkbox"/><span class="task-check"></span><span class="task-copy"><b>Update monthly report</b><small>Internal</small></span><em>19 Sep 2026</em></label>
+<label class="task-row searchable" :class="{ completed: completedTasks.includes(0) }" data-search="Finalize engineering design PRJ-001 EMS ABC Kogen Dairy"><input type="checkbox" @change="toggleTask(0, ($event.target as HTMLInputElement).checked)"/><span class="task-check"></span><span class="task-copy"><b>Finalize engineering design</b><small>PRJ-001 - EMS ABC Kogen Dairy</small></span><em class="today">Today</em></label>
+<label class="task-row searchable" :class="{ completed: completedTasks.includes(1) }" data-search="Prepare vendor comparison PRC-002"><input type="checkbox" @change="toggleTask(1, ($event.target as HTMLInputElement).checked)"/><span class="task-check"></span><span class="task-copy"><b>Prepare vendor comparison</b><small>PRC-002</small></span><em>17 Sep 2026</em></label>
+<label class="task-row searchable" :class="{ completed: completedTasks.includes(2) }" data-search="Review quotation customer QT-2026-014"><input type="checkbox" @change="toggleTask(2, ($event.target as HTMLInputElement).checked)"/><span class="task-check"></span><span class="task-copy"><b>Review quotation to customer</b><small>QT-2026-014</small></span><em>18 Sep 2026</em></label>
+<label class="task-row searchable" :class="{ completed: completedTasks.includes(3) }" data-search="Project progress meeting PRJ-003"><input type="checkbox" @change="toggleTask(3, ($event.target as HTMLInputElement).checked)"/><span class="task-check"></span><span class="task-copy"><b>Project progress meeting</b><small>PRJ-003</small></span><em>18 Sep 2026</em></label>
+<label class="task-row searchable" :class="{ completed: completedTasks.includes(4) }" data-search="Update monthly report Internal"><input type="checkbox" @change="toggleTask(4, ($event.target as HTMLInputElement).checked)"/><span class="task-check"></span><span class="task-copy"><b>Update monthly report</b><small>Internal</small></span><em>19 Sep 2026</em></label>
 </div>
 </article>
 <article class="dash-card schedule reveal">
-<div class="card-head"><h2>Upcoming Schedule</h2><button type="button">View All</button></div>
-<div class="month-nav"><button type="button">‹</button><b>September 2026</b><button type="button">›</button></div>
-<div class="schedule-list">
+<div class="card-head"><h2>Upcoming Schedule</h2><button type="button" @click="navigate('/crm/activities')">View All →</button></div>
+<div class="month-nav"><button type="button" :aria-label="`Previous month before ${monthLabel}`" @click="changeMonth(-1)">‹</button><b>{{ monthLabel }}</b><button type="button" :aria-label="`Next month after ${monthLabel}`" @click="changeMonth(1)">›</button></div>
+<div v-if="hasSchedule" class="schedule-list">
 <div class="schedule-row"><div class="date"><b>16</b><span>Tue</span></div><i class="dot blue"></i><div class="event"><b>Project meeting</b><small>PRJ-001</small></div><div class="event-time"><b>10:00 - 11:00</b><small>⌖ Meeting Room</small></div></div>
 <div class="schedule-row"><div class="date"><b>17</b><span>Wed</span></div><i class="dot green"></i><div class="event"><b>Client presentation</b><small>PT ABC Kogen Dairy</small></div><div class="event-time"><b>13:00 - 14:00</b><small>⌖ Online</small></div></div>
 <div class="schedule-row"><div class="date"><b>18</b><span>Thu</span></div><i class="dot purple"></i><div class="event"><b>Internal review</b><small>Project &amp; Finance</small></div><div class="event-time"><b>09:00 - 10:00</b><small>⌖ Meeting Room</small></div></div>
 <div class="schedule-row"><div class="date"><b>21</b><span>Mon</span></div><i class="dot orange"></i><div class="event"><b>PO review</b><small>Procurement</small></div><div class="event-time"><b>10:00 - 11:00</b><small>⌖ Meeting Room</small></div></div>
 </div>
+<div v-else class="schedule-empty"><span>No schedules in {{ monthLabel }}.</span><button type="button" @click="scheduleMonth = new Date(2026, 8, 1)">Back to September</button></div>
 </article>
 </section>
 <section class="dashboard-grid bottom-grid">
 <article class="dash-card recent-projects reveal">
-<div class="card-head"><h2>Recent Projects</h2><button type="button">View All →</button></div>
+<div class="card-head"><h2>Recent Projects</h2><button type="button" @click="navigate('/project')">View All →</button></div>
 <div class="table-wrap"><table><thead><tr><th>#</th><th>Project Name</th><th>Customer</th><th>Progress</th><th>Status</th><th>End Date</th></tr></thead><tbody><tr class="searchable" data-search="PRJ-001 - EMS ABC Kogen Dairy ABC Kogen Dairy On Track">
 <td>1</td><td>PRJ-001 - EMS ABC Kogen Dairy</td><td>ABC Kogen Dairy</td>
 <td><div class="progress-cell"><div class="progress"><i style="width:75%"></i></div><b>75%</b></div></td>
@@ -219,7 +288,7 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 </tr></tbody></table></div>
 </article>
 <article class="dash-card activities reveal">
-<div class="card-head"><h2>Recent Activities</h2><button type="button">View All →</button></div>
+<div class="card-head"><h2>Recent Activities</h2><button type="button" @click="navigate('/crm/activities')">View All →</button></div>
 <div class="activity-list">
 <div class="activity searchable" data-search="Invoice INV-2026-014 paid"><span class="activity-icon green"><svg><use href="#i-invoice"></use></svg></span><div><b>Invoice INV-2026-014 has been paid</b><small>2 hours ago</small></div></div>
 <div class="activity searchable" data-search="PO-2026-001 approved"><span class="activity-icon blue"><svg><use href="#i-users"></use></svg></span><div><b>PO-2026-001 has been approved</b><small>5 hours ago</small></div></div>
@@ -231,21 +300,21 @@ useHead({title:'SOP — Dashboard',bodyAttrs:{class:'dashboard-page'}})
 <article class="dash-card quick-actions reveal">
 <div class="card-head"><h2>Quick Actions</h2></div>
 <div class="quick-grid">
-<button type="button"><span class="green"><svg><use href="#i-plus"></use></svg></span>Create<br/>Project</button>
-<button type="button"><span class="blue"><svg><use href="#i-file"></use></svg></span>New<br/>Quotation</button>
-<button type="button"><span class="orange"><svg><use href="#i-cart"></use></svg></span>Purchase<br/>Request</button>
-<button type="button"><span class="purple"><svg><use href="#i-invoice"></use></svg></span>Create<br/>Invoice</button>
-<button type="button"><span class="slate"><svg><use href="#i-user"></use></svg></span>Add<br/>Customer</button>
-<button type="button"><span class="blue"><svg><use href="#i-chart"></use></svg></span>View<br/>Reports</button>
+<button type="button" @click="navigate('/project')"><span class="green"><svg><use href="#i-plus"></use></svg></span>Create<br/>Project</button>
+<button type="button" @click="navigate('/quotation/create')"><span class="blue"><svg><use href="#i-file"></use></svg></span>New<br/>Quotation</button>
+<button type="button" @click="navigate('/purchase/request')"><span class="orange"><svg><use href="#i-cart"></use></svg></span>Purchase<br/>Request</button>
+<button type="button" @click="navigate('/sales/invoices')"><span class="purple"><svg><use href="#i-invoice"></use></svg></span>Create<br/>Invoice</button>
+<button type="button" @click="navigate('/crm/customers')"><span class="slate"><svg><use href="#i-user"></use></svg></span>Add<br/>Customer</button>
+<button type="button" @click="navigate('/reports/management')"><span class="blue"><svg><use href="#i-chart"></use></svg></span>View<br/>Reports</button>
 </div>
 </article>
 </section>
 <section class="promo-banner reveal">
 <img alt="" class="promo-illus" src="/assets/promo-illustration.jpg"/>
 <div class="promo-copy"><h2>Streamline Your Operations<br/>with <span>SOP</span></h2><p>Integrate people, process, and technology for greater efficiency.</p></div>
-<button id="learnMore" type="button">Learn More <span>→</span></button>
+<button type="button" @click="navigate('/documents')">Learn More <span>→</span></button>
 <div class="promo-landscape"><div>Stronger Operations<br/>For a Sustainable Tomorrow<i></i></div></div>
 </section>
 </main>
 </div>
-<div class="toast" id="toast" role="status"></div></div></template>
+<div class="toast" :class="{ show: toastVisible }" role="status">{{ toastMessage }}</div></div></template>
